@@ -15,7 +15,7 @@
     </div>
     <div class="row">
       <div class="colum">
-        <img src="@/assets/images/portraits/badgyal_chicle.jpg" alt="Bad Gyal mascando chicle">
+        <img src="@/assets/images/portraits/badgyal_blanco.jpg" alt="Bad Gyal fondo blanco">
       </div>
       <div class="colum">
         <img src="@/assets/images/portraits/Sofia_coche_verde.jpg" alt="Flaca en coche antiguo">
