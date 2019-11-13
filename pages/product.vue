@@ -2,13 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="colum">
-        <img src="@/assets/images/product/retinta_portada_colores.jpg" alt="prueba">
+        <img src="@/assets/images/product/retinta_portada_colores.jpg" alt="portada Retina producto de colores">
       </div>
     </div>
     <div>
     <nuxt-link class="arrow-container" to="/contact">
       <p class="go-next">Go to contact</p>
-      <img class="arrow" src="@/assets/images/arrow-to-right.svg" alt="prueba">
+      <img class="arrow" src="@/assets/images/arrow-to-right.svg" alt="arrow to right">
     </nuxt-link>
     </div>
   </div>

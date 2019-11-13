@@ -1,6 +1,8 @@
 <template>
   <div id="footer" class="footer">
-    <p>Copyright © Elisa S Fernández</p>
+    <div class="container">
+      <p class="copyright">Copyright © Elisa S Fernández</p>
+    </div>
   </div>
 </template>
 
@@ -18,15 +20,20 @@ export default {
   font-size: 12px;
   width: 100vw;
   height: 10vh;
-  margin-right: 24px;
   align-items: center;
   display: flex;
   justify-content: flex-end;
+  .container {
+    margin-right: 24px;
+  }
 }
 
 @media (max-width: 1024px) {
   .footer {
     display: none;
+    .copyright {
+      margin-right: 24px;
+    }
   }
 }
 </style>

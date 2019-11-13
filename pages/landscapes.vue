@@ -2,33 +2,33 @@
   <div  class="container">
     <div class="row">
       <div class="colum">
-        <img src="@/assets/images/landscape/abuela.jpg" alt="prueba">
+        <img src="@/assets/images/landscape/abuela.jpg" alt="abuela en Vietnam">
       </div>
       <div class="colum">
-        <img src="@/assets/images/landscape/ny.jpg" alt="prueba">
-      </div>
-    </div>
-    <div class="row">
-      <div class="colum">
-      <img src="@/assets/images/landscape/kenia.jpg" alt="prueba">
+        <img src="@/assets/images/landscape/ny.jpg" alt="Paisaje de Nueva York">
       </div>
     </div>
     <div class="row">
       <div class="colum">
-        <img src="@/assets/images/landscape/vacas.jpg" alt="prueba">
-      </div>
-      <div class="colum">
-        <img src="@/assets/images/landscape/montaña_rocosa.jpg" alt="prueba">
+        <img src="@/assets/images/landscape/kenia.jpg" alt="Kenia">
       </div>
     </div>
     <div class="row">
       <div class="colum">
-        <img src="@/assets/images/landscape/hochiminh_2.JPG" alt="prueba">
+        <img src="@/assets/images/landscape/vacas.jpg" alt="Vacas">
+      </div>
+      <div class="colum">
+        <img src="@/assets/images/landscape/montaña_rocosa.jpg" alt="Montaña del Cáucaso">
+      </div>
+    </div>
+    <div class="row">
+      <div class="colum">
+        <img src="@/assets/images/landscape/hochiminh_2.JPG" alt="Ho Chi Minh">
       </div>
     </div>
     <nuxt-link class="arrow-container" to="/product">
       <p class="go-next">Go to product</p>
-      <img class="arrow" src="@/assets/images/arrow-to-right.svg" alt="prueba">
+      <img class="arrow" src="@/assets/images/arrow-to-right.svg" alt="arrow to right">
     </nuxt-link>
   </div>
 </template>

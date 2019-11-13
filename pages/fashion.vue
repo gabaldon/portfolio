@@ -2,28 +2,28 @@
   <div class="container">
     <div class="row">
       <div class="colum">
-        <img src="@/assets/images/fashion/chica_silla.jpg" alt="prueba">
+        <img src="@/assets/images/fashion/chica_silla.jpg" alt="Chica en silla">
       </div>
       <div class="colum">
-        <img src="@/assets/images/fashion/yung_beef.jpg" alt="prueba">
-      </div>
-    </div>
-    <div class="row">
-      <div class="colum">
-        <img src="@/assets/images/fashion/chico_blanconegro.jpg" alt="prueba">
+        <img src="@/assets/images/fashion/yung_beef.jpg" alt="Yung Beef">
       </div>
     </div>
     <div class="row">
       <div class="colum">
-        <img src="@/assets/images/fashion/chico_ropa_verde.jpg" alt="prueba">
+        <img src="@/assets/images/fashion/chico_blanconegro.jpg" alt="Chico en blanco y negro">
+      </div>
+    </div>
+    <div class="row">
+      <div class="colum">
+        <img src="@/assets/images/fashion/chico_ropa_verde.jpg" alt="Chico con ropa verde">
       </div>
       <div class="colum">
-        <img src="@/assets/images/fashion/chica_ropa_amarilla.JPG" alt="prueba">
+        <img src="@/assets/images/fashion/chica_ropa_amarilla.JPG" alt="Chica con ropa amarilla">
       </div>
     </div>
     <nuxt-link class="arrow-container" to="/landscapes">
       <p class="go-next">Go to landscapes</p>
-      <img class="arrow" src="@/assets/images/arrow-to-right.svg" alt="prueba">
+      <img class="arrow" src="@/assets/images/arrow-to-right.svg" alt="arrow to right">
     </nuxt-link>
   </div>
 </template>

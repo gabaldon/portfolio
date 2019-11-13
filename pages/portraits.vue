@@ -2,52 +2,52 @@
   <div class="container">
     <div class="row">
       <div class="colum">
-        <img src="@/assets/images/portraits/sofia_dedo_n ariz.jpg" alt="prueba">
+        <img src="@/assets/images/portraits/sofia_dedo_n ariz.jpg" alt="Flaca dedo en la nariz">
       </div>
       <div class="colum">
-        <img src="@/assets/images/portraits/blanco-y-negro-chico.jpg" alt="prueba">
-      </div>
-    </div>
-    <div class="row">
-      <div class="colum">
-        <img src="@/assets/images/portraits/gabaldon_coche.jpg" alt="prueba">
+        <img src="@/assets/images/portraits/blanco-y-negro-chico.jpg" alt="chico en blanco y negro">
       </div>
     </div>
     <div class="row">
       <div class="colum">
-        <img src="@/assets/images/portraits/badgyal_chicle.jpg" alt="prueba">
-      </div>
-      <div class="colum">
-        <img src="@/assets/images/portraits/Sofia_coche_verde.jpg" alt="prueba">
+        <img src="@/assets/images/portraits/gabaldon_coche.jpg" alt="chica en la ventana de coche">
       </div>
     </div>
     <div class="row">
       <div class="colum">
-        <img src="@/assets/images/portraits/sofia_coche_rojo.jpg" alt="prueba">
+        <img src="@/assets/images/portraits/badgyal_chicle.jpg" alt="Bad Gyal mascando chicle">
       </div>
       <div class="colum">
-        <img src="@/assets/images/portraits/chico_retrato.jpg" alt="prueba">
-      </div>
-    </div>
-    <div class="row">
-      <div class="colum">
-        <img src="@/assets/images/portraits/badgyal_chupachups.jpg" alt="prueba">
-      </div>
-      <div class="colum">
-        <img src="@/assets/images/portraits/sofia_militar.jpg" alt="prueba">
+        <img src="@/assets/images/portraits/Sofia_coche_verde.jpg" alt="Flaca en coche antiguo">
       </div>
     </div>
     <div class="row">
       <div class="colum">
-        <img src="@/assets/images/portraits/portada_retina_hombre.jpg" alt="prueba">
+        <img src="@/assets/images/portraits/sofia_coche_rojo.jpg" alt="Flaca en coche rojo">
       </div>
       <div class="colum">
-        <img src="@/assets/images/portraits/chico-saltando.jpg" alt="prueba">
+        <img src="@/assets/images/portraits/chico_retrato.jpg" alt="retrato de chico">
+      </div>
+    </div>
+    <div class="row">
+      <div class="colum">
+        <img src="@/assets/images/portraits/badgyal_chupachups.jpg" alt="Bad Gyal chupachups">
+      </div>
+      <div class="colum">
+        <img src="@/assets/images/portraits/sofia_militar.jpg" alt="Flaca militar">
+      </div>
+    </div>
+    <div class="row">
+      <div class="colum">
+        <img src="@/assets/images/portraits/portada_retina_hombre.jpg" alt="portada de retina">
+      </div>
+      <div class="colum">
+        <img src="@/assets/images/portraits/chico-saltando.jpg" alt="chico saltando">
       </div>
     </div>
     <nuxt-link class="arrow-container" to="/fashion">
       <p class="go-next"> Go to fashion </p>
-      <img class="arrow" src="@/assets/images/arrow-to-right.svg" alt="prueba">
+      <img class="arrow" src="@/assets/images/arrow-to-right.svg" alt="arrow o the right">
     </nuxt-link>
   </div>
 </template>

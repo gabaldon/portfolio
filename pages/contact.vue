@@ -1,16 +1,16 @@
 <template>
   <div class="container">
     <div class="contact-text">
-    <p>
-      Hello! My name is Elisa and I am photographer based in Madrid.
-      I collaborate with magazines such as <br> El Pais Semanal, ICON, TENTACIONES,
-      Retina or Nylon. 💐
-    </p>
-    <div class="links">
-      <a class="link" href="https://www.instagram.com/elimita/?hl=es">Instagram</a>
-      <a class="link" href="mailto:elisasanchezfernandez@correo.com">elisasanchezfernandez@gmail.com</a>
+      <p>
+        Hello! My name is Elisa and I am photographer based in Madrid.
+        I collaborate with magazines such as <br> El Pais Semanal, ICON, TENTACIONES,
+        Retina or Nylon. 💐
+      </p>
+      <div class="links">
+        <a class="link" target="_blank" href="https://www.instagram.com/elimita/?hl=es">Instagram</a>
+        <a class="link" target="_blank" href="mailto:elisasanchezfernandez@correo.com">elisasanchezfernandez@gmail.com</a>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -41,15 +41,12 @@ export default {
     margin-top: 50vh;
     line-height: 1.5;
     .links {
-      background-color: pink;
       text-align:justify;
-      // width: 50vw;
-      border: 1px solid rgb(251, 253, 107);
+      text-shadow: 2px 2px  rgb(251, 253, 107);
       padding: 2px;
       .link {
-      text-align: center;
+      text-align: left;
       display: block;
-      padding: 10px;
       }
     }
   }

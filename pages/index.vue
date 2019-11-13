@@ -1,17 +1,19 @@
 <template>
-  <div class="container row" v-bind:style="{ 'background-image': 'url(' + mainImageSrc + ')' }">
-  <div class="contact-text">
-    <p>
-      Hello! My name is Elisa and I am photographer based in Madrid.
-      I collaborate with magazines such as  El Pais Semanal, ICON, TENTACIONES,
-      Retina or Nylon. 💐
-    </p>
-    <div class="links">
-      <a class="link" href="https://www.instagram.com/elimita/?hl=es">Instagram</a>
-      <a class="link" href="mailto:elisasanchezfernandez@correo.com">elisasanchezfernandez@gmail.com</a>
+  <div>
+    <div class="container row" v-bind:style="{ 'background-image': 'url(' + mainImageSrc + ')' }">
+      <div class="contact-text">
+        <div>
+          Hello! My name is Elisa and I am a photographer based in Madrid.
+          I collaborate with magazines such as  El Pais Semanal, ICON, TENTACIONES,
+          Retina or Nylon. 💐
+        </div>
+        <div class="links">
+          <a class="link" href="https://www.instagram.com/elimita/?hl=es">Instagram</a>
+          <a class="link" href="mailto:elisasanchezfernandez@correo.com">elisasanchezfernandez@gmail.com</a>
+        </div>
+      </div>
     </div>
-  </div>
-  <Footer />
+    <Footer />
   </div>
 </template>
 
@@ -74,20 +76,21 @@ export default {
   .contact-text {
     font-size: 12px;
     width: 500px;
-    height: 200px;
-    line-height: 1.5;
-    margin-top: 60vh;
-    margin-left: 13vh;
+    height: 80vh;
+    line-height: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 80px;
     .links {
-      background-color: #fec1cc;
+      text-shadow: 2px 2px  rgb(251, 253, 107);
       text-align:justify;
       width: 300px;
-      border: 1px solid rgb(251, 253, 107);
       padding: 2px;
       .link {
-        text-align: center;
+        text-align: left;
         display: block;
-        padding: 10px;
+        padding: 8px 0px 8px 0px;
       }
     }
   }
