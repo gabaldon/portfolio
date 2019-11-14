@@ -1,41 +1,41 @@
 <template>
   <div class="nav-bar">
     <div class="top-bar">
-    <div class="about" @click ="toogleSideBar = !toogleSideBar">
-      <h1 class="logo">
-        <span class="logo-br-pnk">ELISA</span><br><span class="logo-br-in">S</span><span class="logo-br">FERNÁNDEZ </span>
-      </h1>
-    </div>
+      <div class="about" @click="toogleSideBar = !toogleSideBar">
+        <h1 class="logo">
+          <span class="logo-br-pnk">ELISA</span><br><span class="logo-br-in">S</span><span class="logo-br">FERNÁNDEZ </span>
+        </h1>
+      </div>
     </div>
     <div id="side-bar">
       <transition name="translate-in">
         <ul v-if="windowWidth < 1024 ? toogleSideBar : toogleSideBar = true" class="side-bar">
-          <li @click ="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
+          <li @click="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
             <nuxt-link class="nav-link home" to="/">
               HOLA!
             </nuxt-link>
           </li>
-          <li @click ="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
+          <li @click="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
             <nuxt-link active-class="active" class="nav-link portraits" to="/portraits">
               PORTRAITS
             </nuxt-link>
           </li>
-          <li @click ="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
+          <li @click="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
             <nuxt-link active-class="active" class="nav-link fashion" to="/fashion">
               FASHION
             </nuxt-link>
           </li>
-          <li @click ="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
+          <li @click="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
             <nuxt-link active-class="active" class="nav-link landscapes" to="/landscapes">
               LANDSCAPES
             </nuxt-link>
           </li>
-          <li @click ="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
+          <li @click="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
             <nuxt-link active-class="active" class="nav-link product" to="/product">
               PRODUCT
             </nuxt-link>
           </li>
-          <li @click ="toogleSideBar = true">
+          <li @click="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
             <nuxt-link active-class="active" class="nav-link contact" to="/contact">
               CONTACT
             </nuxt-link>
@@ -194,12 +194,15 @@ export default {
     justify-content: left;
     flex-direction: column;
     align-items: left;
+    .top-bar {
+      padding: 20px 35px;
+    }
     .side-bar {
       display: block;
       margin: 0 auto;
       // background-color: white;
       text-align: left;
-      padding: 50px;
+      padding: 50px 50px 50px 30px;
 
       .nav-link {
         background-color: rgba(251, 253, 107, 0.603);

@@ -6,10 +6,10 @@
       </div>
     </div>
     <div>
-    <nuxt-link class="arrow-container" to="/contact">
-      <p class="go-next">Go to contact</p>
-      <img class="arrow" src="@/assets/images/arrow-to-right.svg" alt="arrow to right">
-    </nuxt-link>
+      <nuxt-link class="arrow-container" to="/contact">
+        <p class="go-next">Go to contact</p>
+        <img class="arrow" src="@/assets/images/arrow-to-right.svg" alt="arrow to right">
+      </nuxt-link>
     </div>
   </div>
 </template>

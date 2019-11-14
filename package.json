@@ -1,8 +1,8 @@
 {
-  "name": "elisa",
+  "name": "Elisa S Fernández",
   "version": "1.0.0",
-  "description": "photography portfolio",
-  "author": "Maria Gabaldon",
+  "description": "Elisa S Fernández is a Photographer based in Madrid - elisasanchezfernandez@gmail.com",
+  "author": "Maria Gabaldon Rico",
   "private": true,
   "scripts": {
     "dev": "nuxt",
