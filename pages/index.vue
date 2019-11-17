@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="container row" v-bind:style="{ 'background-image': 'url(' + mainImageSrc + ')' }">
+    <div class="container row" v-lazy:background-image="mainImageSrc">
       <div class="contact-text">
         <div>
-          Hello! My name is Elisa and I am a photographer based in Madrid.
+          Hola! My name is Elisa and I am a photographer based in Madrid.
           I collaborate with magazines such as  El Pais Semanal, ICON, TENTACIONES,
           Retina or Nylon. 💐
         </div>
@@ -25,7 +25,7 @@ export default {
     return {
       title: 'Elisa S Fernández',
       meta: [
-        { hid: 'description', name: 'description', content: 'Hello! My name is Elisa and I am a photographer based in Madrid.' }
+        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
       ]
     }
   },
@@ -34,30 +34,26 @@ export default {
   },
   data () {
     return {
-      mainImageSrc: require('@/assets/images/fondo-site/puerta_portada.jpg'),
+      mainImageSrc: require('@/assets/images/fondo-site/cover-1.jpg'),
       images: []
     }
   },
   created () {
-    console.log(this.images.length)
     const self = this
     this.images = [
       {
-        id: '23',
-        image: require('@/assets/images/fondo-site/puerta_portada.jpg')
+        image: require('@/assets/images/fondo-site/cover-1.jpg')
       },
       {
-        id: '32',
-        image: require('@/assets/images/fondo-site/coche_portada.jpg')
+        image: require('@/assets/images/fondo-site/cover-2.jpg')
       },
       {
-        id: '45',
-        image: require('@/assets/images/fondo-site/verja_portada.jpg')
+        image: require('@/assets/images/fondo-site/cover-3.jpg')
       }
     ]
     setInterval(function () {
       self.mainImageSrc = self.images[Math.floor(Math.random() * self.images.length)].image
-    }, 1500)
+    }, 2000)
   }
 }
 </script>

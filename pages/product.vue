@@ -2,13 +2,13 @@
   <div class="container">
     <div class="row">
       <div class="colum">
-        <img src="@/assets/images/product/retinta_portada_colores.jpg" alt="portada Retina producto de colores">
+        <img v-lazy="images[0]" alt="portada Retina producto de colores">
       </div>
     </div>
     <div>
       <nuxt-link class="arrow-container" to="/contact">
         <p class="go-next">Go to contact</p>
-        <img class="arrow" src="@/assets/images/arrow-to-right.svg" alt="arrow to right">
+        <img class="arrow" v-lazy="require('@/assets/images/arrow-to-right.svg')" alt="arrow to right">
       </nuxt-link>
     </div>
   </div>
@@ -21,7 +21,14 @@ export default {
     return {
       title: 'Portraits - Elisa S Fernández',
       meta: [
-        { hid: 'description', name: 'description', content: 'Hello! My name is Elisa and I am a photographer based in Madrid.' }
+        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
+      ]
+    }
+  },
+  data () {
+    return {
+      images: [
+        require('@/assets/images/product/retina_product.jpg')
       ]
     }
   }
@@ -46,7 +53,6 @@ export default {
     align-items: center;
     justify-content: flex-end;
     padding: 14px;
-    padding-right: 55px;
     .go-next {
       text-shadow: 2px 2px  rgb(251, 253, 107);
     }

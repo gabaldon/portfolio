@@ -57,7 +57,7 @@ export default {
     return {
       title: 'Portraits - Elisa S Fernández',
       meta: [
-        { hid: 'description', name: 'description', content: 'Hello! My name is Elisa and I am a photographer based in Madrid.' }
+        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
       ]
     }
   },

@@ -8,12 +8,10 @@
 
 <script>
 import NavBar from '@/components/NavBar.vue'
-// import Footer from '@/components/Footer.vue'
 
 export default {
   components: {
     NavBar
-    // Footer
   }
 }
 </script>
@@ -26,7 +24,6 @@ export default {
   font-weight: normal;
 }
 html {
-  // font-family: '00541Regular';
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

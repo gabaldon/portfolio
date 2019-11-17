@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 
 export default {
   data () {
@@ -54,7 +55,11 @@ export default {
       toogleSideBar: true,
       scrollPosition: null,
       windowWidth: null
-      // documentHeight: null
+    }
+  },
+  watch: {
+    toogleSideBar () {
+      this.$store.commit('toogleBar')
     }
   },
   mounted () {
@@ -62,10 +67,11 @@ export default {
     window.addEventListener('scroll', this.updateScroll)
     window.addEventListener('window', this.updateWindowWidth)
     this.updateWindowWidth()
-    // window.addEventListener('document', this.updateDocumentHeight)
-    // this.updateDocumentHeight()
   },
   methods: {
+    ...mapMutations([
+      'toogleBar'
+    ]),
     onScroll () {
       let prevScrollpos = window.pageYOffset
       if (window.innerWidth > 1024) {
@@ -80,9 +86,6 @@ export default {
         }
       }
     },
-    // updateDocumentHeight () {
-    //   this.documentHeight = document.getElementById('footer').offsetTop
-    // },
     updateScroll () {
       this.scrollPosition = window.innerHeight + window.scrollY
     },
@@ -99,20 +102,15 @@ export default {
   position: fixed;
   z-index: 500;
   width: 100vw;
-  // background-color: white;
-  // display: flex;
-  // justify-content: space-between;
-  // align-items: center;
   .top-bar {
     padding: 20px 50px;
-    // background-color: white;
     display: flex;
     justify-content: space-between;
     .logo {
       padding: 10px 30px;
       margin: 0px;
       font-size: 13px;
-      line-height: 1.8;
+      line-height: 1.7;
       text-shadow: none;
       &:hover .logo-br{
         background-image: linear-gradient(to top, rgb(251, 253, 107) 50%, transparent 50%);
@@ -166,7 +164,6 @@ export default {
     transition: top 0.3s;
   }
   .side-bar {
-    // display: flex;
     & .hidden-navbar {
       box-shadow: none;
       transform: translate3d(0, -100%, 0);
@@ -177,7 +174,7 @@ export default {
       margin: 0px;
     }
     .active {
-      text-shadow: 2px 2px  rgb(251, 253, 107);
+      text-shadow: 2px 2px  white;
     }
     .contact {
       display: none;
@@ -189,7 +186,6 @@ export default {
     position: fixed;
     z-index: 500;
     width: 100vw;
-    // display: block;
     display: flex;
     justify-content: left;
     flex-direction: column;
@@ -200,7 +196,6 @@ export default {
     .side-bar {
       display: block;
       margin: 0 auto;
-      // background-color: white;
       text-align: left;
       padding: 50px 50px 50px 30px;
 
@@ -210,6 +205,9 @@ export default {
       }
       .contact {
         display: inline-block;
+      }
+      .active {
+        background-color: #ffc0cb94;
       }
     }
     .translate-in-enter-active {
@@ -244,8 +242,6 @@ export default {
     position: fixed;
     z-index: 500;
     width: 100vw;
-    // height: 100vh;
-    // background-color: white;
     display: block;
     display: flex;
     justify-content: left;
@@ -254,7 +250,6 @@ export default {
     .side-bar {
       display: block;
       margin: 0 auto;
-      // background-color: white;
       text-align: left;
       padding: 50px;
       li {
