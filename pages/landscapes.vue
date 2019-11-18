@@ -1,5 +1,5 @@
 <template>
-  <div  class="container">
+  <div class="container">
     <div class="row">
       <div class="colum">
         <img v-lazy="images[0]" alt="abuela en Vietnam">
@@ -27,8 +27,10 @@
       </div>
     </div>
     <nuxt-link class="arrow-container" to="/product">
-      <p class="go-next">Go to product</p>
-      <img class="arrow" v-lazy="require('@/assets/images/arrow-to-right.svg')" alt="arrow to right">
+      <p class="go-next">
+        Go to product
+      </p>
+      <img v-lazy="require('@/assets/images/arrow-to-right.svg')" class="arrow" alt="arrow to right">
     </nuxt-link>
   </div>
 </template>

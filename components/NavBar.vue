@@ -9,33 +9,33 @@
     </div>
     <div id="side-bar">
       <transition name="translate-in">
-        <ul v-if="windowWidth < 1024 ? toogleSideBar : toogleSideBar = true" class="side-bar">
-          <li @click="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
+        <ul v-if="isMobile ? toogleSideBar : toogleSideBar = true" class="side-bar">
+          <li @click="toogleBar()">
             <nuxt-link class="nav-link home" to="/">
               HOLA!
             </nuxt-link>
           </li>
-          <li @click="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
+          <li @click="toogleBar()">
             <nuxt-link active-class="active" class="nav-link portraits" to="/portraits">
               PORTRAITS
             </nuxt-link>
           </li>
-          <li @click="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
+          <li @click="toogleBar()">
             <nuxt-link active-class="active" class="nav-link fashion" to="/fashion">
               FASHION
             </nuxt-link>
           </li>
-          <li @click="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
+          <li @click="toogleBar()">
             <nuxt-link active-class="active" class="nav-link landscapes" to="/landscapes">
               LANDSCAPES
             </nuxt-link>
           </li>
-          <li @click="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
+          <li @click="toogleBar()">
             <nuxt-link active-class="active" class="nav-link product" to="/product">
               PRODUCT
             </nuxt-link>
           </li>
-          <li @click="windowWidth < 1024 ? toogleSideBar = false : toogleSideBar = true">
+          <li @click="toogleBar()">
             <nuxt-link active-class="active" class="nav-link contact" to="/contact">
               CONTACT
             </nuxt-link>
@@ -57,6 +57,11 @@ export default {
       windowWidth: null
     }
   },
+  computed: {
+    isMobile () {
+      return this.windowWidth < 1024
+    }
+  },
   watch: {
     toogleSideBar () {
       this.$store.commit('toogleBar')
@@ -67,11 +72,17 @@ export default {
     window.addEventListener('scroll', this.updateScroll)
     window.addEventListener('window', this.updateWindowWidth)
     this.updateWindowWidth()
+    if (this.isMobile && this.$route.path !== '/') {
+      this.toogleSideBar = false
+    }
   },
   methods: {
     ...mapMutations([
       'toogleBar'
     ]),
+    toogleBar () {
+      this.isMobile ? this.toogleSideBar = false : this.toogleSideBar = true
+    },
     onScroll () {
       let prevScrollpos = window.pageYOffset
       if (window.innerWidth > 1024) {

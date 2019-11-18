@@ -46,8 +46,10 @@
       </div>
     </div>
     <nuxt-link class="arrow-container" to="/fashion">
-      <p class="go-next">Go to fashion</p>
-      <img class="arrow" v-lazy="require('@/assets/images/arrow-to-right.svg')" alt="prueba">
+      <p class="go-next">
+        Go to fashion
+      </p>
+      <img v-lazy="require('@/assets/images/arrow-to-right.svg')" class="arrow" alt="prueba">
     </nuxt-link>
   </div>
 </template>

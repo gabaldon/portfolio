@@ -1,7 +1,9 @@
 <template>
   <div id="footer" class="footer">
     <div class="container">
-      <p class="copyright">Copyright © Elisa S Fernández</p>
+      <p class="copyright">
+        Copyright © Elisa S Fernández
+      </p>
     </div>
   </div>
 </template>

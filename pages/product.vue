@@ -7,8 +7,10 @@
     </div>
     <div>
       <nuxt-link class="arrow-container" to="/contact">
-        <p class="go-next">Go to contact</p>
-        <img class="arrow" v-lazy="require('@/assets/images/arrow-to-right.svg')" alt="arrow to right">
+        <p class="go-next">
+          Go to contact
+        </p>
+        <img v-lazy="require('@/assets/images/arrow-to-right.svg')" class="arrow" alt="arrow to right">
       </nuxt-link>
     </div>
   </div>

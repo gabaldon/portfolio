@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container row" v-lazy:background-image="mainImageSrc">
+    <div v-lazy:background-image="mainImageSrc" class="container row">
       <div class="contact-text">
         <div>
           Hola! My name is Elisa and I am a photographer based in Madrid.
