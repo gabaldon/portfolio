@@ -8,7 +8,7 @@
           Retina or Nylon. 💐
         </div>
         <div class="links">
-          <a class="link" href="https://www.instagram.com/elimita/?hl=es">Instagram</a>
+          <a class="link" href="https://www.instagram.com/elimita/?hl=es">Instagram - @elimita</a>
           <a class="link" href="mailto:elisasanchezfernandez@correo.com">elisasanchezfernandez@gmail.com</a>
         </div>
       </div>

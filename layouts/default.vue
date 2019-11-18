@@ -1,8 +1,9 @@
 <template>
   <div>
     <NavBar />
-    <nuxt />
-    <!-- <Footer /> -->
+    <transition name="slide">
+      <nuxt />
+    </transition>
   </div>
 </template>
 
@@ -33,6 +34,21 @@ html {
   box-sizing: border-box;
   background-color: rgb(252, 252, 252);
 }
+.slide-enter {
+  transform: translateY(10%);
+  transition-property: all;
+  transition-duration: 0.02s;
+}
+.slide-enter-to {
+  transform: translateY(0);
+  opacity: 0.5;
+}
+.slide-enter-active {
+  position: absolute;
+  opacity: 0;
+}
+.slide-enter-active,
+.slide-leave-active { transition: all 500ms ease-in-out }
 a {
   text-decoration: none;
   color: rgb(44, 44, 44);

@@ -160,13 +160,11 @@ export default {
     transition: all .3s ease;
   }
   .translate-in-leave-active {
-    transition: top 500ms translateY(80px);
+    transition: 500ms;
   }
-  .translate-in-enter {
+  .translate-in-enter,
+  .translate-in-leave-active {
     transform: translateY(-400px);
-  }
-  .tranlate-in-leave-to {
-    transform: translateY(80px);
   }
   #side-bar {
     position: fixed;
