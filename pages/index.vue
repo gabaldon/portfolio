@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-lazy:background-image="mainImageSrc" class="container row">
+    <div class="container row" v-lazy:background-image="mainImageSrc" :data-loading="mainImageLowQuality">
       <div class="contact-text">
         <div>
           Hola! My name is Elisa and I am a photographer based in Madrid.
@@ -35,7 +35,9 @@ export default {
   data () {
     return {
       mainImageSrc: require('@/assets/images/fondo-site/cover-1.jpg'),
-      images: []
+      images: [],
+      mainImageLowQuality: require('@/assets/images/fondo-site/Cover_1_LQ.jpg'),
+      imagesLowQuality: []
     }
   },
   created () {
@@ -51,8 +53,20 @@ export default {
         image: require('@/assets/images/fondo-site/cover-3.jpg')
       }
     ]
+    this.imagesLowQuality = [
+      {
+        image: require('@/assets/images/fondo-site/Cover_1_LQ.jpg')
+      },
+      {
+        image: require('@/assets/images/fondo-site/Cover_2_LQ.jpg')
+      },
+      {
+        image: require('@/assets/images/fondo-site/Cover_3_LQ.jpg')
+      }
+    ]
     setInterval(function () {
       self.mainImageSrc = self.images[Math.floor(Math.random() * self.images.length)].image
+      self.mainImageSrc = self.imagesLowQuality[Math.floor(Math.random() * self.imagesLowQuality.length)].image
     }, 2000)
   }
 }

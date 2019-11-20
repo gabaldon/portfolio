@@ -2,7 +2,7 @@
   <div class="container">
     <div v-show="show" class="contact-text">
       <p>
-        Hola! My name is Elisa and I am photographer based in Madrid.
+        Hola! My name is Elisa and I am a photographer based in Madrid.
         I collaborate with magazines such as El Pais Semanal, ICON, TENTACIONES,
         Retina or Nylon. 💐
       </p>

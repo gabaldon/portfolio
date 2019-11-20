@@ -2,11 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="colum">
-        <img v-lazy="images[0]" alt="portada Retina producto de colores">
+        <img v-lazy="images[0]" :data-loading="imageslowQuality[0]" alt="portada Retina producto de colores">
       </div>
     </div>
     <div>
-      <nuxt-link class="arrow-container" to="/contact">
+      <nuxt-link v-show="show" class="arrow-container" to="/contact">
         <p class="go-next">
           Go to contact
         </p>
@@ -31,7 +31,25 @@ export default {
     return {
       images: [
         require('@/assets/images/product/retina_product.jpg')
-      ]
+      ],
+      imageslowQuality: [
+        require('@/assets/images/product/retina_product_LQ.jpg')
+      ],
+      show: true
+    }
+  },
+  computed: {
+    isToogleActive () {
+      return this.$store.state.toogleSideBar
+    }
+  },
+  watch: {
+    isToogleActive () {
+      if (this.isToogleActive) {
+        this.show = true
+      } else {
+        this.show = false
+      }
     }
   }
 }
