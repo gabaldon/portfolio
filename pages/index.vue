@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container row" v-lazy:background-image="mainImageSrc" :data-loading="mainImageLowQuality">
+    <div v-lazy:background-image="mainImageSrc" class="container row">
       <div class="contact-text">
         <div>
           Hola! My name is Elisa and I am a photographer based in Madrid.
@@ -34,40 +34,37 @@ export default {
   },
   data () {
     return {
-      mainImageSrc: require('@/assets/images/fondo-site/cover-1.jpg'),
+      mainImageSrc: '',
+      mainImageLowQuality: '',
       images: [],
-      mainImageLowQuality: require('@/assets/images/fondo-site/Cover_1_LQ.jpg'),
-      imagesLowQuality: []
+      counter: 0
     }
   },
   created () {
     const self = this
     this.images = [
       {
-        image: require('@/assets/images/fondo-site/cover-1.jpg')
+        src: require('@/assets/images/fondo-site/cover-1.jpg'),
+        loading: require('@/assets/images/fondo-site/Cover_1_LQ.jpg')
       },
       {
-        image: require('@/assets/images/fondo-site/cover-2.jpg')
+        src: require('@/assets/images/fondo-site/cover-2.jpg'),
+        loading: require('@/assets/images/fondo-site/Cover_2_LQ.jpg')
       },
       {
-        image: require('@/assets/images/fondo-site/cover-3.jpg')
+        src: require('@/assets/images/fondo-site/cover-3.jpg'),
+        loading: require('@/assets/images/fondo-site/Cover_3_LQ.jpg')
       }
     ]
-    this.imagesLowQuality = [
-      {
-        image: require('@/assets/images/fondo-site/Cover_1_LQ.jpg')
-      },
-      {
-        image: require('@/assets/images/fondo-site/Cover_2_LQ.jpg')
-      },
-      {
-        image: require('@/assets/images/fondo-site/Cover_3_LQ.jpg')
-      }
-    ]
+    self.mainImageSrc = self.images[0]
     setInterval(function () {
-      self.mainImageSrc = self.images[Math.floor(Math.random() * self.images.length)].image
-      self.mainImageSrc = self.imagesLowQuality[Math.floor(Math.random() * self.imagesLowQuality.length)].image
-    }, 2000)
+      if (this.counter < 2) {
+        this.counter += 1
+      } else {
+        this.counter = 0
+      }
+      self.mainImageSrc = self.images[this.counter]
+    }, 2500)
   }
 }
 </script>

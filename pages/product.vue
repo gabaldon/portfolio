@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="colum">
-        <img v-lazy="images[0]" :data-loading="imageslowQuality[0]" alt="portada Retina producto de colores">
+        <img v-lazy="images[0]" alt="portada Retina producto de colores">
       </div>
     </div>
     <div>
@@ -30,10 +30,10 @@ export default {
   data () {
     return {
       images: [
-        require('@/assets/images/product/retina_product.jpg')
-      ],
-      imageslowQuality: [
-        require('@/assets/images/product/retina_product_LQ.jpg')
+        {
+          src: require('@/assets/images/product/retina_product.jpg'),
+          loading: require('@/assets/images/product/retina_product_LQ.jpg')
+        }
       ],
       show: true
     }
@@ -63,6 +63,8 @@ export default {
     flex-direction: column;
     justify-content: space-between;
   img {
+    min-height: 70%;
+    min-width: 70%;
     max-height: 80vh;
     max-width: 70vw;
     padding: 20px;
@@ -77,6 +79,8 @@ export default {
       text-shadow: 2px 2px  rgb(251, 253, 107);
     }
     .arrow {
+      min-height: 0;
+      min-width: 0;
       padding: 8px;
       width: 13px;
     }

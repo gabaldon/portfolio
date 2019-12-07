@@ -33,18 +33,18 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   background-color: rgb(252, 252, 252);
+  scroll-behavior: smooth;
 }
 .slide-enter {
-  transform: translateY(10%);
+  transform: translateY(5%);
   transition-property: all;
-  transition-duration: 0.02s;
+  opacity: 0;
 }
 .slide-enter-to {
   transform: translateY(0);
-  opacity: 0.5;
+  opacity: 1;
 }
 .slide-enter-active {
-  position: absolute;
   opacity: 0;
 }
 .slide-enter-active,
@@ -73,19 +73,17 @@ a {
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
+  padding-top: calc(90vh / 70vh * 100%);
+  position: relative;
   flex: 1;
+}
+img {
+  max-width: 100%;
+  height: auto;
 }
 body {
   margin: 0;
   padding: 0;
   font-size: 13px;
-}
-@media (max-width: 1024px) {
-  img {
-    max-width: 90vw;
-    max-height: 90vh;
-    height: auto;
-    padding: 0px;
-  }
 }
 </style>
