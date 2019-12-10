@@ -73,7 +73,6 @@ a {
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
-  padding-top: calc(90vh / 70vh * 100%);
   position: relative;
   flex: 1;
 }
