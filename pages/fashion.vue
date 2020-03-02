@@ -68,6 +68,14 @@ export default {
         }
       ]
     }
+  },
+  created () {
+    this.scrollToTop()
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0,0);
+    }
   }
 }
 </script>
@@ -83,6 +91,10 @@ export default {
     max-height: 90vh;
     max-width: 70vw;
     padding: 20px;
+  }
+  img[lazy=loading]{
+    min-height: 200px;
+    min-width: 200px;
   }
   .arrow-container {
     display: flex;

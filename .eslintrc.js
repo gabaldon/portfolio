@@ -7,9 +7,6 @@ module.exports = {
   parserOptions: {
     parser: "babel-eslint",
   },
-  extends: ["@nuxtjs", "plugin:nuxt/recommended"],
+  extends: ["@nuxtjs", "plugin:nuxt/recommended", "prettier"],
   // add your custom rules here
-  rules: {
-    semi: "error"
-  }
 };
