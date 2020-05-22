@@ -81,6 +81,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.page-enter-active {
+  transition: all 1s;
+}
+.page-enter {
+  opacity: 0;
+  transform: translateY(600px)
+}
 
 .container {
     padding-top: 70px;

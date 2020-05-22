@@ -1,9 +1,7 @@
 <template>
   <div>
     <NavBar />
-    <transition name="slide">
-      <nuxt />
-    </transition>
+    <nuxt />
   </div>
 </template>
 
@@ -13,42 +11,37 @@ import NavBar from '@/components/NavBar.vue'
 export default {
   components: {
     NavBar
+  },
+  data() {
+    return {
+      show: false,
+    }
+  },
+  created() {
+    this.$route.path !== '/' 
+      ? this.show = true
+      : this.show = false
   }
 }
 </script>
 
 <style lang="scss">
-@font-face {
-  font-family: "00600Regular";
-  src: url("/fonts/00600Regular.ttf") format("truetype");
-  font-style: normal;
-  font-weight: normal;
-}
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap);
+
 html {
-  font-size: 16px;
+  font-family: 'Roboto Mono';
+  font-weight: bold;
+  font-size: 14px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  background-color: rgb(252, 252, 252);
+  background-color: #fcfcfc;
   scroll-behavior: smooth;
 }
-.slide-enter {
-  transform: translateY(5%);
-  transition-property: all;
-  opacity: 0;
-}
-.slide-enter-to {
-  transform: translateY(0);
-  opacity: 1;
-}
-.slide-enter-active {
-  opacity: 0;
-}
-.slide-enter-active,
-.slide-leave-active { transition: all 500ms ease-in-out }
 a {
   text-decoration: none;
   color: rgb(44, 44, 44);
@@ -57,7 +50,7 @@ a {
   }
   &:hover,
   &:active {
-    text-shadow: 2px 2px  rgb(251, 253, 107);
+    text-shadow: 2px 2px  #fbfd6b;
     cursor: pointer;
   }
 }
@@ -83,6 +76,6 @@ img {
 body {
   margin: 0;
   padding: 0;
-  font-size: 13px;
+  overflow-x: hidden;
 }
 </style>

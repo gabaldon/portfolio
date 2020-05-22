@@ -12,11 +12,11 @@
       <div class="colum">
         <img v-lazy="images[2]" alt="prueba">
       </div>
-    </div>
-    <div class="row">
       <div class="colum">
         <img v-lazy="images[3]" alt="prueba">
       </div>
+    </div>
+    <div class="row">
       <div class="colum">
         <img v-lazy="images[4]" alt="prueba">
       </div>
@@ -67,49 +67,49 @@ export default {
     return {
       images: [
         {
-          src: require('@/assets/images/portraits/flaca_cover_1.jpg'),
-          loading: require('@/assets/images/portraits/flaca_cover_1_LQ.jpg')
+          src: require('@/assets/images/portraits/alta/INGRID.jpg'),
+          loading: require('@/assets/images/portraits/baja/INGRID.jpg')
         },
         {
-          src: require('@/assets/images/portraits/joon_bn_2.jpg'),
-          loading: require('@/assets/images/portraits/joon_bn_2_LQ.jpg')
+          src: require('@/assets/images/portraits/alta/GERMAN.jpg'),
+          loading: require('@/assets/images/portraits/baja/GERMAN.jpg')
         },
         {
-          src: require('@/assets/images/portraits/coche_3.jpg'),
-          loading: require('@/assets/images/portraits/coche_3_LQ.jpg')
-        },
-        {
-          src: require('@/assets/images/portraits/Badgyal_white_4.jpg'),
-          loading: require('@/assets/images/portraits/Badgyal_white_4_LQ.jpg')
-        },
-        {
-          src: require('@/assets/images/portraits/Flaca_celeste_5.jpg'),
-          loading: require('@/assets/images/portraits/Flaca_celeste_5_LQ.jpg')
-        },
-        {
-          src: require('@/assets/images/portraits/flaca_burdeos_6.jpg'),
-          loading: require('@/assets/images/portraits/flaca_burdeos_6_LQ.jpg')
-        },
-        {
-          src: require('@/assets/images/portraits/TMF_7.jpg'),
-          loading: require('@/assets/images/portraits/TMF_7_LQ.jpg')
+          src: require('@/assets/images/portraits/alta/lengua.jpg'),
+          loading: require('@/assets/images/portraits/baja/lengua.jpg')
         },
         {
           src: require('@/assets/images/portraits/badgyal_candy_8.jpg'),
           loading: require('@/assets/images/portraits/badgyal_candy_8_LQ.jpg')
         },
         {
-          src: require('@/assets/images/portraits/Flaca_rueda_9.jpg'),
-          loading: require('@/assets/images/portraits/Flaca_rueda_9_LQ.jpg')
+          src: require('@/assets/images/portraits/coche_3.jpg'),
+          loading: require('@/assets/images/portraits/coche_3_LQ.jpg')
         },
         {
           src: require('@/assets/images/portraits/Retina_10.jpg'),
           loading: require('@/assets/images/portraits/Retina_10_LQ.jpg')
         },
         {
+          src: require('@/assets/images/portraits/alta/megansito.jpg'),
+          loading: require('@/assets/images/portraits/baja/megansito.jpg')
+        },
+        {
+          src: require('@/assets/images/portraits/joon_bn_2.jpg'),
+          loading: require('@/assets/images/portraits/joon_bn_2_LQ.jpg')
+        },
+        {
+          src: require('@/assets/images/portraits/Badgyal_white_4.jpg'),
+          loading: require('@/assets/images/portraits/Badgyal_white_4_LQ.jpg')
+        },
+        {
           src: require('@/assets/images/portraits/joon_color_11.jpg'),
           loading: require('@/assets/images/portraits/joon_color_11_LQ.jpg')
-        }
+        },
+        {
+          src: require('@/assets/images/portraits/alta/BARBA.jpg'),
+          loading: require('@/assets/images/portraits/baja/BARBA.jpg')
+        },
       ]
     }
   },
@@ -125,6 +125,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.page-enter-active {
+  transition: all 1s;
+}
+.page-enter {
+  opacity: 0;
+  transform: translateY(600px)
+}
 .fadeInUp {
   opacity: 0;
   transform: translateY(20px);

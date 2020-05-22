@@ -70,6 +70,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.page-enter-active, .page-leave-active {
+  transition: all 0.5s;
+}
+.page-enter, .page-leave-active {
+  opacity: 0;
+}
 .container {
   margin: 0;
   padding: 0px;

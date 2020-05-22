@@ -3,39 +3,48 @@
     <div class="top-bar">
       <div class="about" @click="toogleSideBar = !toogleSideBar">
         <h1 class="logo">
-          <span class="logo-br-pnk">ELISA</span><br><span class="logo-br-in">S</span><span class="logo-br">FERNÁNDEZ </span>
+          <span class="logo-br-pnk">ELISA</span>
+          <span>
+            <span class="logo-br-in">S</span>
+            <span class="logo-br">FERNÁNDEZ </span>
+          </span>
         </h1>
       </div>
     </div>
     <div id="side-bar">
       <transition name="translate-in">
         <ul v-if="isMobile ? toogleSideBar : toogleSideBar = true" class="side-bar">
-          <li @click="toogleBar()">
+          <li @click="toogle()">
             <nuxt-link class="nav-link home" to="/">
               HOLA!
             </nuxt-link>
           </li>
-          <li @click="toogleBar()">
+          <li @click="toogle()">
+            <nuxt-link active-class="active" class="nav-link projects" to="/projects">
+              PROJECTS
+            </nuxt-link>
+          </li>
+          <li @click="toogle()">
             <nuxt-link active-class="active" class="nav-link portraits" to="/portraits">
               PORTRAITS
             </nuxt-link>
           </li>
-          <li @click="toogleBar()">
+          <li @click="toogle()">
             <nuxt-link active-class="active" class="nav-link fashion" to="/fashion">
               FASHION
             </nuxt-link>
           </li>
-          <li @click="toogleBar()">
+          <li @click="toogle()">
             <nuxt-link active-class="active" class="nav-link landscapes" to="/landscapes">
               LANDSCAPES
             </nuxt-link>
           </li>
-          <li @click="toogleBar()">
+          <li @click="toogle()">
             <nuxt-link active-class="active" class="nav-link product" to="/product">
               PRODUCT
             </nuxt-link>
           </li>
-          <li @click="toogleBar()">
+          <li @click="toogle()">
             <nuxt-link active-class="active" class="nav-link contact" to="/contact">
               CONTACT
             </nuxt-link>
@@ -64,7 +73,7 @@ export default {
   },
   watch: {
     toogleSideBar () {
-      this.$store.commit('toogleBar')
+      this.toogleBar()
     }
   },
   mounted () {
@@ -78,9 +87,11 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'toogleBar'
+      'toogleBar',
+      'detectClick',
     ]),
-    toogleBar () {
+    toogle () {
+      this.detectClick()
       this.isMobile ? this.toogleSideBar = false : this.toogleSideBar = true
     },
     onScroll () {
@@ -110,21 +121,23 @@ export default {
 <style lang="scss" scoped>
 .nav-bar,
 .nav-bar-mobile {
+  width: max-content;
   position: fixed;
   z-index: 500;
-  width: 100vw;
   .top-bar {
+    width: max-content;
     padding: 20px 50px;
     display: flex;
     justify-content: space-between;
     .logo {
       padding: 10px 30px;
       margin: 0px;
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.7;
       text-shadow: none;
-      &:hover .logo-br{
-        background-image: linear-gradient(to top, rgb(251, 253, 107) 50%, transparent 50%);
+      display: grid;
+      &:hover .logo-br {
+        background-image: linear-gradient(to top, #fbfd6b 50%, transparent 50%);
         background-position: 0 100%;
         transition: background-position 300ms, color 300ms ease, border-color 300ms ease;
         cursor: pointer;
@@ -145,21 +158,24 @@ export default {
       }
       .logo-br-pnk {
         border: 1px solid black;
-        margin-bottom: 20px;
-        padding: 3px;
+        padding: 0px 3px;
+        width: min-content;
         background-size: 200% 200%;
         background-image: linear-gradient(to top, pink 50%, transparent 50%);
         transition: background-position 300ms, color 300ms ease, border-color 300ms ease;
       }
-      .logo-br-in {
-        padding: 5px;
-      }
     }
   }
   .translate-in-enter-active {
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
     transition: all .3s ease;
   }
   .translate-in-leave-active {
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    -o-transition: 500ms;
     transition: 500ms;
   }
   .translate-in-enter,
@@ -171,6 +187,9 @@ export default {
     top: 80px;
     display: block;
     transition: top 0.3s;
+    -webkit-transition: top 0.3s;
+    -moz-transition: top 0.3s;
+    -o-transition: top 0.3s;
   }
   .side-bar {
     & .hidden-navbar {
@@ -183,7 +202,7 @@ export default {
       margin: 0px;
     }
     .active {
-      text-shadow: 2px 2px  white;
+      text-shadow: 2px 2px  #ffc0cb94;
     }
     .contact {
       display: none;
@@ -220,10 +239,16 @@ export default {
       }
     }
     .translate-in-enter-active {
+      -webkit-transition: all .3s ease;
+      -moz-transition: all .3s ease;
+      -o-transition: all .3s ease;
       transition: all .3s ease;
     }
     .translate-in-leave-active {
       transition: top 500ms translateY(80px);
+      -webkit-transition: top 500ms translateY(80px);
+      -moz-transition: top 500ms translateY(80px);
+      -o-transition: top 500ms translateY(80px);
     }
     .translate-in-enter {
       transform: translateY(-400px);
