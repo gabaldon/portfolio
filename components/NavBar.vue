@@ -134,7 +134,7 @@ export default {
     .logo {
       padding: 10px 30px;
       margin: 0px;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
       line-height: 1.7;
       text-shadow: none;

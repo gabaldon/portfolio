@@ -111,7 +111,6 @@ export default {
       this.texts.forEach(text => {
         text.show = false
       })
-      console.log(this.texts)
     },
     scrollToTop() {
       window.scrollTo(0,0);
@@ -172,6 +171,12 @@ export default {
   .container {
     padding-left: 0px;
     padding-top: 0px;
+    .cursor {
+      cursor: auto
+    }
+    .title {
+      display: none;
+    }
   }
 }
 </style>

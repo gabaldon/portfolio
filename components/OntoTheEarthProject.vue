@@ -7,7 +7,10 @@
     </transition>
     <div class="row">
       <div class="colum">
-        <p class="project-title">
+        <p class="project-mobile">
+          ONTO THE EARTH
+        </p>
+        <p v-show="!displayDesktopSideBar" class="project-title">
           ONTO THE EARTH
         </p>
         <img v-lazy="images[0]" alt="">
@@ -90,15 +93,6 @@ export default {
       displayDesktopSideBar: state => state.displayDesktopSideBar,
     }),
   },
-  watch: {
-    isToogleActive () {
-      if (this.displayDesktopSideBar) {
-        this.show = true
-      } else {
-        this.show = false
-      }
-    },
-  },
   created () {
     this.scrollToTop()
   },
@@ -133,7 +127,7 @@ export default {
   left: 70px;
   width: 200px;
   line-height: 2;
-  font-size: 16px;
+  font-size: 14px;
 }
 .mobile-description {
   display: none;
@@ -142,9 +136,12 @@ export default {
   overflow-x: hidden;
   .project-title {
     text-shadow: 2px 2px  rgb(251, 253, 107);
-    margin-bottom: 0px;
-    margin-top: 65px;
-    margin-left: 24px;
+    position: fixed;
+    right: 32px;
+    top: 16px;
+  }
+  .project-mobile {
+    display: none;
   }
   img {
     max-width: 70vw;
@@ -194,14 +191,19 @@ export default {
       margin: 0px;
     }
     .project-title {
-      margin-bottom: 0px;
-      margin-left: 16px;
-      margin-top: 16px
+      display: none;
     }
     .mobile-description {
       text-align: justify;
       display: block;
       padding: 24px;
+    }
+    .project-mobile {
+      display: block;
+      text-shadow: 2px 2px  rgb(251, 253, 107);
+      position: fixed;
+      top: 16px;
+      right: 32px;
     }
   }
 }
