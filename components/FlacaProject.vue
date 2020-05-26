@@ -164,6 +164,11 @@ export default {
     img {
       max-width: 300px;
     }
+    .project-title {
+      margin-bottom: 0px;
+      margin-left: 32px;
+      margin-top: 100px;
+    }
   }
 }
 </style>
