@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <p class="project-title">
+    <p v-show="!displayDesktopSideBar" class="project-title">
+      FLACA
+    </p>
+    <p class="project-title-mobile">
       FLACA
     </p>
     <div class="row">
@@ -45,7 +48,7 @@
 </template>
 
 <script>
-
+import { mapState } from 'vuex'
 export default {
   head () {
     return {
@@ -92,18 +95,9 @@ export default {
     }
   },
   computed: {
-    isToogleActive () {
-      return this.$store.state.toogleSideBar
-    },
-  },
-  watch: {
-    isToogleActive () {
-      if (this.isToogleActive) {
-        this.show = true
-      } else {
-        this.show = false
-      }
-    },
+    ...mapState({
+      displayDesktopSideBar: state => state.displayDesktopSideBar,
+    }),
   },
   created () {
     this.scrollToTop()
@@ -125,9 +119,9 @@ export default {
   padding-left: 100px;
   .project-title {
     text-shadow: 2px 2px  rgb(251, 253, 107);
-    margin-bottom: 24px;
-    margin-top: 24px;
-    margin-left: 140px;
+    position: fixed;
+    right: 32px;
+    top: 16px;
   }
   img {
     max-width: 35vw;
@@ -165,9 +159,13 @@ export default {
       max-width: 300px;
     }
     .project-title {
-      margin-bottom: 0px;
-      margin-left: 32px;
-      margin-top: 100px;
+      display: none;
+    }
+    .project-title-mobile {
+      text-shadow: 2px 2px  rgb(251, 253, 107);
+      position: fixed;
+      right: 32px;
+      top: 16px;
     }
   }
 }
