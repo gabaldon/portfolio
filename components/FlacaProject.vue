@@ -123,6 +123,9 @@ export default {
     right: 32px;
     top: 16px;
   }
+  .project-title-mobile {
+    display: none;
+  }
   img {
     max-width: 35vw;
     padding: 20px;
@@ -162,6 +165,7 @@ export default {
       display: none;
     }
     .project-title-mobile {
+      display: block;
       text-shadow: 2px 2px  rgb(251, 253, 107);
       position: fixed;
       right: 32px;
