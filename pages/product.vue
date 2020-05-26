@@ -22,9 +22,6 @@ export default {
   head () {
     return {
       title: 'Product - Elisa S Fernández',
-      meta: [
-        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
-      ]
     }
   },
   data () {

@@ -1,7 +1,15 @@
 <template>
   <div class="container">
+    <transition name="translate">
+      <p v-show="displayDesktopSideBar" class="description">
+        Onto the Earth’ is a project which aims to make humans aware of the natural world that surrounds us all. The pictures center on a woman who has just arrived in a new space; the world we used to live in, now devastated by humankind. These pictures are a mirror, a second chance to show ourselves just how important our planet's ecosystems are.
+      </p>
+    </transition>
     <div class="row">
       <div class="colum">
+        <p class="project-title">
+          ONTO THE EARTH
+        </p>
         <img v-lazy="images[0]" alt="">
       </div>
       <div class="colum">
@@ -24,6 +32,11 @@
         <img v-lazy="images[5]" alt="">
       </div>
     </div>
+    <div class="row">
+      <p class="mobile-description">
+        Onto the Earth’ is a project which aims to make humans aware of the natural world that surrounds us all. The pictures center on a woman who has just arrived in a new space; the world we used to live in, now devastated by humankind. These pictures are a mirror, a second chance to show ourselves just how important our planet's ecosystems are.
+      </p>
+    </div>
     <div class="arrow-container" @click="closeProject">
       <img v-lazy="require('@/assets/images/arrow-to-right.svg')" class="arrow" alt="arrow to right">
       <p class="go-next">
@@ -34,14 +47,11 @@
 </template>
 
 <script>
-
+import { mapState } from 'vuex'
 export default {
   head () {
     return {
-      title: 'Onto the world - Elisa S Fernández',
-      meta: [
-        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
-      ]
+      title: 'Onto the Earth - Elisa S Fernández',
     }
   },
   data () {
@@ -76,13 +86,13 @@ export default {
     }
   },
   computed: {
-    isToogleActive () {
-      return this.$store.state.toogleSideBar
-    },
+    ...mapState({
+      displayDesktopSideBar: state => state.displayDesktopSideBar,
+    }),
   },
   watch: {
     isToogleActive () {
-      if (this.isToogleActive) {
+      if (this.displayDesktopSideBar) {
         this.show = true
       } else {
         this.show = false
@@ -104,14 +114,47 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.transition-leave-active {
+  transition: all 0.5s;
+}
+.transition-leave-active {
+  opacity: 0;
+}
+.translate-enter-active {
+  transition: all 0.5s;
+}
+.translate-enter {
+  opacity: 0;
+  transform: translateY(-1400px)
+}
+.description {
+  position: fixed;
+  top: 100px;
+  left: 70px;
+  width: 200px;
+  line-height: 2;
+  font-size: 16px;
+}
+.mobile-description {
+  display: none;
+}
 .container {
-  padding-left: 100px;
+  overflow-x: hidden;
+  .project-title {
+    text-shadow: 2px 2px  rgb(251, 253, 107);
+    margin-bottom: 0px;
+    margin-top: 65px;
+    margin-left: 24px;
+  }
   img {
-    max-width: 65vw;
+    max-width: 70vw;
   }
   img[lazy=loading]{
-    min-height: 200px;
-    min-width: 200px;
+    min-height: 950px;
+    min-width: 960px;
+  }
+  .row {
+    margin-left: 100px;
   }
   .arrow-container {
     display: flex;
@@ -136,9 +179,24 @@ export default {
   .container {
     height: 100vh;
     padding-left: 0px;
-    padding-top: 0px;
+    padding-top: 90px;
     img {
       max-width: 300px;
+    }
+    .description {
+      display: none;
+    }
+    .row {
+      margin: 0px;
+    }
+    .project-title {
+      margin-bottom: 0px;
+      margin-left: 16px;
+    }
+    .mobile-description {
+      text-align: justify;
+      display: block;
+      padding: 24px;
     }
   }
 }

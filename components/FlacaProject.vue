@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <p class="project-title">
+      FLACA
+    </p>
     <div class="row">
       <div class="colum">
         <img v-lazy="images[0]" alt="">
@@ -47,9 +50,6 @@ export default {
   head () {
     return {
       title: 'Flaca - Elisa S Fernández',
-      meta: [
-        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
-      ]
     }
   },
   data () {
@@ -123,6 +123,12 @@ export default {
 .container {
   padding-top: 70px;
   padding-left: 100px;
+  .project-title {
+    text-shadow: 2px 2px  rgb(251, 253, 107);
+    margin-bottom: 24px;
+    margin-top: 24px;
+    margin-left: 140px;
+  }
   img {
     max-width: 35vw;
     padding: 20px;

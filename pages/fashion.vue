@@ -1,26 +1,39 @@
 <template>
-  <div class="container">
-    <div class="responsive-container">
-      <div class="row">
-        <div class="colum">
-          <img v-lazy="images[0]" alt="Chica en silla">
-        </div>
-        <div class="colum">
-          <img v-lazy="images[1]" alt="Yung Beef">
-        </div>
+  <div class="container" @mousemove="updateCoordinates">
+    <div class="row">
+      <p v-show="texts[0].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        {{ texts[0].title }}
+      </p>
+      <div class="colum cursor" @mouseenter="texts[0].show = true" @mouseleave="texts[0].show = false">
+        <img v-lazy="images[0]" alt="Chica en silla">
       </div>
-      <div class="row">
-        <div class="colum">
-          <img v-lazy="images[2]" alt="Chico en blanco y negro">
-        </div>
+      <p v-show="texts[1].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        {{ texts[1].title }}
+      </p>
+      <div class="colum cursor" @mouseenter="texts[1].show = true" @mouseleave="texts[1].show = false">
+        <img v-lazy="images[1]" alt="Yung Beef">
       </div>
-      <div class="row">
-        <div class="colum">
-          <img v-lazy="images[3]" alt="Chico con ropa verde">
-        </div>
-        <div class="colum">
-          <img v-lazy="images[4]" alt="Chica con ropa amarilla">
-        </div>
+    </div>
+    <div class="row">
+      <p v-show="texts[2].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        {{ texts[2].title }}
+      </p>
+      <div class="colum cursor" @mouseenter="texts[2].show = true" @mouseleave="texts[2].show = false">
+        <img v-lazy="images[2]" alt="Chico en blanco y negro">
+      </div>
+    </div>
+    <div class="row">
+      <p v-show="texts[3].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        {{ texts[3].title }}
+      </p>
+      <div class="colum cursor" @mouseenter="texts[3].show = true" @mouseleave="texts[3].show = false">
+        <img v-lazy="images[3]" alt="Chico con ropa verde">
+      </div>
+      <p v-show="texts[4].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        {{ texts[4].title }}
+      </p>
+      <div class="colum cursor" @mouseenter="texts[4].show = true" @mouseleave="texts[4].show = false">
+        <img v-lazy="images[4]" alt="Chica con ropa amarilla">
       </div>
     </div>
     <nuxt-link class="arrow-container" to="/landscapes">
@@ -38,13 +51,34 @@ export default {
   head () {
     return {
       title: 'Fashion - Elisa S Fernández',
-      meta: [
-        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
-      ]
     }
   },
   data () {
     return {
+      x: 0,
+      y: 0,
+      texts: [
+        { 
+          title: 'MARIA KE FISHERMAN, TENTACIONES EL PAÍS',
+          show: false,
+        },
+        { 
+          title: 'YUNG BEEF, TENTACIONES EL PAÍS',
+          show: false,
+        },
+        { 
+          title: 'PALOMO SPAIN, ICON EL PAÍS',
+          show: false,
+        },
+        { 
+          title: 'PALOMO SPAIN, ICON EL PAÍS',
+          show: false,
+        },
+        { 
+          title: 'SITA ABELLÁN, TENTACIONES EL PAÍS',
+          show: false,
+        },
+      ],
       images: [
         {
           src: require('@/assets/images/fashion/MariaKfisherman_1.jpg'),
@@ -73,9 +107,19 @@ export default {
     this.scrollToTop()
   },
   methods: {
+    hideTitles() {
+      this.texts.forEach(text => {
+        text.show = false
+      })
+      console.log(this.texts)
+    },
     scrollToTop() {
       window.scrollTo(0,0);
-    }
+    },
+    updateCoordinates(event) {
+      this.x = event.clientX;
+      this.y = event.clientY;
+    },
   }
 }
 </script>
@@ -90,8 +134,11 @@ export default {
 }
 
 .container {
-    padding-top: 70px;
-    padding-left: 100px;
+  padding-top: 70px;
+  padding-left: 100px;
+  .cursor {
+    cursor: none;
+  }
   img {
     min-height: 70%;
     min-width: 70%;

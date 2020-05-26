@@ -8,7 +8,7 @@
       </p>
       <div class="links">
         <a class="link" target="_blank" href="https://www.instagram.com/elimita/?hl=es">Instagram - @elimita</a>
-        <a class="link" target="_blank" href="mailto:elisasanchezfernandez@correo.com">elisasanchezfernandez@gmail.com</a>
+        <a class="link" target="_blank" href="mailto:elisasanchezfernandez@gmail.com">elisasanchezfernandez@gmail.com</a>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@ export default {
     return {
       title: 'Contact - Elisa S Fernández',
       meta: [
-        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
+        { hid: 'description', name: 'description', content: 'elisasanchezfernandez@gmail.com' }
       ]
     }
   },

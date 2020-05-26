@@ -1,28 +1,46 @@
 <template>
-  <div class="container">
+  <div class="container" @mousemove="updateCoordinates">
     <div class="row">
-      <div class="colum">
+      <p v-show="texts[0].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        {{ texts[0].title }}
+      </p>
+      <div class="colum cursor" @mouseenter="texts[0].show = true" @mouseleave="texts[0].show = false">
         <img v-lazy="images[0]" alt="abuela en Vietnam">
       </div>
-      <div class="colum">
+      <p v-show="texts[1].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        {{ texts[1].title }}
+      </p>
+      <div class="colum cursor" @mouseenter="texts[1].show = true" @mouseleave="texts[1].show = false">
         <img v-lazy="images[1]" alt="Paisaje de Nueva York">
       </div>
     </div>
     <div class="row">
-      <div class="colum">
+      <p v-show="texts[2].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        {{ texts[2].title }}
+      </p>
+      <div class="colum cursor" @mouseenter="texts[2].show = true" @mouseleave="texts[2].show = false">
         <img v-lazy="images[2]" alt="Kenia">
       </div>
     </div>
     <div class="row">
-      <div class="colum">
+      <p v-show="texts[3].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        {{ texts[3].title }}
+      </p>
+      <div class="colum cursor" @mouseenter="texts[3].show = true" @mouseleave="texts[3].show = false">
         <img v-lazy="images[3]" alt="Vacas">
       </div>
-      <div class="colum">
+      <p v-show="texts[4].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        {{ texts[4].title }}
+      </p>
+      <div class="colum cursor" @mouseenter="texts[4].show = true" @mouseleave="texts[4].show = false">
         <img v-lazy="images[4]" alt="Montaña del Cáucaso">
       </div>
     </div>
     <div class="row">
-      <div class="colum">
+      <p v-show="texts[5].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        {{ texts[5].title }}
+      </p>
+      <div class="colum cursor" @mouseenter="texts[5].show = true" @mouseleave="texts[5].show = false">
         <img v-lazy="images[5]" alt="Ho Chi Minh">
       </div>
     </div>
@@ -41,13 +59,38 @@ export default {
   head () {
     return {
       title: 'Landscapes - Elisa S Fernández',
-      meta: [
-        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
-      ]
     }
   },
   data () {
     return {
+      x: 0,
+      y: 0,
+      texts: [
+        { 
+          title: 'MADRID',
+          show: false,
+        },
+        { 
+          title: 'NEW YORK',
+          show: false,
+        },
+        { 
+          title: 'NAIROBI',
+          show: false,
+        },
+        { 
+          title: 'XINALIQ',
+          show: false,
+        },
+        { 
+          title: 'AZERBAIJAN',
+          show: false,
+        },
+        { 
+          title: 'HO CHI MINH',
+          show: false,
+        },
+      ],
       images: [
         {
           src: require('@/assets/images/landscape/edificio_1.jpg'),
@@ -82,7 +125,11 @@ export default {
   methods: {
     scrollToTop () {
       window.scrollTo(0, 0)
-    }
+    },
+    updateCoordinates(event) {
+      this.x = event.clientX;
+      this.y = event.clientY;
+    },
   }
 }
 </script>
@@ -99,6 +146,9 @@ export default {
   padding-top: 70px;
   padding-left: 100px;
   min-height: 100vh;
+  .cursor {
+    cursor: none;
+  }
   img {
     min-height: 70%;
     min-width: 70%;
@@ -132,6 +182,12 @@ export default {
   .container {
     padding-left: 0px;
     padding-top: 0px;
+    .cursor {
+      cursor: auto
+    }
+    .title {
+      display: none;
+    }
   }
 }
 

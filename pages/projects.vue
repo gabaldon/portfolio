@@ -20,7 +20,7 @@
       <FlacaProject v-if="flacaProject" @close-project="closeProject" />
     </transition>
     <transition name="slide-up">
-      <OntoTheWorldProject v-if="worldProject" @close-project="closeProject" />
+      <OntoTheEarthProject v-if="worldProject" @close-project="closeProject" />
     </transition>
     <nuxt-link v-show="show && !isProjectShown" class="arrow-container" to="/portraits">
       <p class="go-next">
@@ -33,19 +33,16 @@
 
 <script>
 import FlacaProject from '@/components/FlacaProject.vue'
-import OntoTheWorldProject from '@/components/OntoTheWorldProject.vue'
+import OntoTheEarthProject from '@/components/OntoTheEarthProject.vue'
 
 export default {
   components: {
     FlacaProject,
-    OntoTheWorldProject,
+    OntoTheEarthProject,
   },
   head () {
     return {
       title: 'Projects - Elisa S Fernández',
-      meta: [
-        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
-      ]
     }
   },
   data () {
@@ -99,7 +96,6 @@ export default {
   },
   methods: {
     updateCoordinates(event) {
-      // pass event object, bound to mouse move with updat
       this.x = event.clientX + 24;
       this.y = event.clientY;
     },
@@ -112,9 +108,11 @@ export default {
     },
     showProject(project) {
       if(project === 'flaca') {
+        this.scrollToTop()
         this.flacaProject = true 
         this.worldProject = false
       } else {
+        this.scrollToTop()
         this.flacaProject = false
         this.worldProject = true
       }

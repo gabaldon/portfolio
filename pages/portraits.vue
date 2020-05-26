@@ -1,18 +1,30 @@
 <template>
-  <div class="container">
+  <div class="container" @mousemove="updateCoordinates">
     <div class="row">
-      <div class="colum">
+      <p v-show="texts[0].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        {{ texts[0].title }}
+      </p>
+      <div class="colum cursor" @mouseenter="texts[0].show = true" @mouseleave="texts[0].show = false">
         <img v-lazy="images[0]" alt="prueba">
       </div>
-      <div class="colum">
+      <div class="colum cursor" @mouseenter="texts[1].show = true" @mouseleave="texts[1].show = false">
+        <p v-show="texts[1].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+          {{ texts[1].title }}
+        </p>
         <img v-lazy="images[1]" alt="prueba">
       </div>
     </div>
     <div class="row">
-      <div class="colum">
+      <div class="colum cursor" @mouseenter="texts[2].show = true" @mouseleave="texts[2].show = false">
+        <p v-show="texts[2].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+          {{ texts[2].title }}
+        </p>
         <img v-lazy="images[2]" alt="prueba">
       </div>
-      <div class="colum">
+      <div class="colum cursor" @mouseenter="texts[3].show = true" @mouseleave="texts[3].show = false">
+        <p v-show="texts[3].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+          {{ texts[3].title }}
+        </p>
         <img v-lazy="images[3]" alt="prueba">
       </div>
     </div>
@@ -22,10 +34,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="colum">
+      <div class="colum cursor" @mouseenter="texts[5].show = true" @mouseleave="texts[5].show = false">
+        <p v-show="texts[5].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+          {{ texts[5].title }}
+        </p>
         <img v-lazy="images[5]" alt="prueba">
       </div>
-      <div class="colum">
+      <div class="colum cursor" @mouseenter="texts[6].show = true" @mouseleave="texts[6].show = false">
+        <p v-show="texts[6].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+          {{ texts[6].title }}
+        </p>
         <img v-lazy="images[6]" alt="prueba">
       </div>
     </div>
@@ -33,12 +51,18 @@
       <div class="colum">
         <img v-lazy="images[7]" alt="prueba">
       </div>
-      <div class="colum">
+      <div class="colum cursor" @mouseenter="texts[8].show = true" @mouseleave="texts[8].show = false">
+        <p v-show="texts[8].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+          {{ texts[8].title }}
+        </p>
         <img v-lazy="images[8]" alt="prueba">
       </div>
     </div>
     <div class="row">
-      <div class="colum">
+      <div class="colum cursor" @mouseenter="texts[9].show = true" @mouseleave="texts[9].show = false">
+        <p v-show="texts[9].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+          {{ texts[9].title }}
+        </p>
         <img v-lazy="images[9]" alt="prueba">
       </div>
       <div class="colum">
@@ -65,6 +89,54 @@ export default {
   },
   data () {
     return {
+      x: 0,
+      y: 0,
+      texts: [
+        { 
+          title: 'INGRID GARCÍA-JONSSON, RETINA EL PAÍS',
+          show: false,
+        },
+        { 
+          title: 'GERMÁN ALCARAZU, ICON EL PAÍS',
+          show: false,
+        },
+        { 
+          title: 'MI ABUELA',
+          show: false,
+        },
+        { 
+          title: 'BAD GYAL, TENTACIONES EL PAÍS',
+          show: false,
+        },
+        { 
+          title: null,
+          show: false,
+        },
+        { 
+          title: 'ADEYEMI AJAO, RETINA EL PÁIS',
+          show: false,
+        },
+        { 
+          title: 'MEGANSITO EL GUAPO',
+          show: false,
+        },
+        { 
+          title: null,
+          show: false,
+        },
+        { 
+          title: 'BAD GYAL, TENTACIONES EL PAÍS',
+          show: false, 
+        },
+        { 
+          title: 'J-ZOON',
+          show: false,
+        },
+        { 
+          title: null,
+          show: false, 
+        },
+      ],
       images: [
         {
           src: require('@/assets/images/portraits/alta/INGRID.jpg'),
@@ -119,7 +191,11 @@ export default {
   methods: {
     scrollToTop() {
       window.scrollTo(0,0);
-    }
+    },
+    updateCoordinates(event) {
+      this.x = event.clientX;
+      this.y = event.clientY;
+    },
   }
 }
 </script>
@@ -146,6 +222,9 @@ export default {
   padding-top: 70px;
   padding-left: 100px;
   min-height: 100vh;
+  .cursor {
+    cursor: none;
+  }
   img {
     min-height: 70%;
     min-width: 70%;
@@ -179,6 +258,12 @@ export default {
   .container {
     padding-left: 0px;
     padding-top: 0px;
+    .cursor {
+      cursor: auto
+    }
+    .title {
+      display: none;
+    }
   }
 }
 </style>

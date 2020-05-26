@@ -13,7 +13,7 @@
     </div>
     <div id="side-bar">
       <transition name="translate-in">
-        <ul v-if="isMobile ? toogleSideBar : toogleSideBar = true" class="side-bar">
+        <ul v-if="toogleSideBar" class="side-bar">
           <li @click="toogle()">
             <nuxt-link class="nav-link home" to="/">
               HOLA!
@@ -69,12 +69,12 @@ export default {
   computed: {
     isMobile () {
       return this.windowWidth < 1024
-    }
+    },
   },
   watch: {
     toogleSideBar () {
       this.toogleBar()
-    }
+    },
   },
   mounted () {
     this.onScroll()
@@ -89,6 +89,7 @@ export default {
     ...mapMutations([
       'toogleBar',
       'detectClick',
+      'toggleDesktopBar',
     ]),
     toogle () {
       this.detectClick()
@@ -110,6 +111,7 @@ export default {
     },
     updateScroll () {
       this.scrollPosition = window.innerHeight + window.scrollY
+      document.getElementById('side-bar').style.top === '80px' ? this.toggleDesktopBar({ toggle: false }) : this.toggleDesktopBar({ toggle: true })
     },
     updateWindowWidth () {
       this.windowWidth = window.innerWidth
@@ -132,7 +134,8 @@ export default {
     .logo {
       padding: 10px 30px;
       margin: 0px;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 500;
       line-height: 1.7;
       text-shadow: none;
       display: grid;

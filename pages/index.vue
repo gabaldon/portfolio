@@ -96,7 +96,7 @@ export default {
     justify-content: flex-end;
     margin-left: 80px;
     .links {
-      text-shadow: 2px 2px  rgb(251, 253, 107);
+      text-shadow: 2px 2px  #fbfd6b;
       text-align:justify;
       width: 300px;
       padding: 2px;
