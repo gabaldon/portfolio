@@ -183,6 +183,10 @@ export default {
     img {
       max-width: 300px;
     }
+    img[lazy=loading]{
+      min-height: 200px;
+      min-width: 200px;
+    }
     .description {
       display: none;
     }
@@ -192,6 +196,7 @@ export default {
     .project-title {
       margin-bottom: 0px;
       margin-left: 16px;
+      margin-top: 16px
     }
     .mobile-description {
       text-align: justify;
