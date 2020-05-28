@@ -2,17 +2,17 @@
   <div class="container">
     <transition name="translate">
       <p v-show="displayDesktopSideBar" class="description">
-        Onto the Earth’ is a project which aims to make humans aware of the natural world that surrounds us all. The pictures center on a woman who has just arrived in a new space; the world we used to live in, now devastated by humankind. These pictures are a mirror, a second chance to show ourselves just how important our planet's ecosystems are.
+        'Onto the Earth' is a project which aims to make humans aware of the natural world that surrounds us all. The pictures center on a woman who has just arrived in a new space; the world we used to live in, now devastated by humankind. These pictures are a mirror, a second chance to show ourselves just how important our planet's ecosystems are.
       </p>
     </transition>
+    <p v-show="!displayDesktopSideBar" class="project-title">
+      ONTO THE EARTH
+    </p>
+    <p class="project-title-mobile">
+      ONTO THE EARTH
+    </p>
     <div class="row">
       <div class="colum">
-        <p class="project-mobile">
-          ONTO THE EARTH
-        </p>
-        <p v-show="!displayDesktopSideBar" class="project-title">
-          ONTO THE EARTH
-        </p>
         <img v-lazy="images[0]" alt="">
       </div>
       <div class="colum">
@@ -33,6 +33,30 @@
       </div>
       <div class="colum">
         <img v-lazy="images[5]" alt="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="colum">
+        <img v-lazy="images[6]" alt="">
+      </div>
+      <div class="colum">
+        <img v-lazy="images[7]" alt="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="colum">
+        <img v-lazy="images[8]" alt="">
+      </div>
+      <div class="colum">
+        <img v-lazy="images[9]" alt="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="colum">
+        <img v-lazy="images[10]" alt="">
+      </div>
+      <div class="colum">
+        <img v-lazy="images[11]" alt="">
       </div>
     </div>
     <div class="row">
@@ -61,29 +85,53 @@ export default {
     return {
       images: [
         {
-          src: require('@/assets/images/projects/onto-the-world/ALTA/01_ALTA.jpg'),
-          loading: require('@/assets/images/projects/onto-the-world/BAJA/BAJA_01.jpg')
+          src: require('@/assets/images/projects/onto-the-world/ALTA/1.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/1.jpg')
         },
         {
-          src: require('@/assets/images/projects/onto-the-world/ALTA/02_ALTA.jpg'),
-          loading: require('@/assets/images/projects/onto-the-world/BAJA/BAJA_02.jpg')
+          src: require('@/assets/images/projects/onto-the-world/ALTA/2.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/2.jpg')
         },
         {
-          src: require('@/assets/images/projects/onto-the-world/ALTA/03_ALTA.jpg'),
-          loading: require('@/assets/images/projects/onto-the-world/BAJA/BAJA_03.jpg')
+          src: require('@/assets/images/projects/onto-the-world/ALTA/3.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/3.jpg')
         },
         {
-          src: require('@/assets/images/projects/onto-the-world/ALTA/04_ALTA.jpg'),
-          loading: require('@/assets/images/projects/onto-the-world/BAJA/BAJA_04.jpg')
+          src: require('@/assets/images/projects/onto-the-world/ALTA/4.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/4.jpg')
         },
         {
-          src: require('@/assets/images/projects/onto-the-world/ALTA/05_ALTA.jpg'),
-          loading: require('@/assets/images/projects/onto-the-world/BAJA/BAJA_05.jpg')
+          src: require('@/assets/images/projects/onto-the-world/ALTA/5.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/5.jpg')
         },
         {
-          src: require('@/assets/images/projects/onto-the-world/ALTA/06_ALTA.jpg'),
-          loading: require('@/assets/images/projects/onto-the-world/BAJA/BAJA_06.jpg')
-        }
+          src: require('@/assets/images/projects/onto-the-world/ALTA/6.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/6.jpg')
+        },
+        {
+          src: require('@/assets/images/projects/onto-the-world/ALTA/7.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/7.jpg')
+        },
+        {
+          src: require('@/assets/images/projects/onto-the-world/ALTA/8.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/8.jpg')
+        },
+        {
+          src: require('@/assets/images/projects/onto-the-world/ALTA/9.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/9.jpg')
+        },
+        {
+          src: require('@/assets/images/projects/onto-the-world/ALTA/10.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/10.jpg')
+        },
+        {
+          src: require('@/assets/images/projects/onto-the-world/ALTA/11.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/11.jpg')
+        },
+        {
+          src: require('@/assets/images/projects/onto-the-world/ALTA/12.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/12.jpg')
+        },
       ],
       show: true
     }
@@ -125,7 +173,7 @@ export default {
   position: fixed;
   top: 100px;
   left: 70px;
-  width: 200px;
+  width: 140px;
   line-height: 2;
   font-size: 14px;
 }
@@ -133,25 +181,25 @@ export default {
   display: none;
 }
 .container {
-  overflow-x: hidden;
+  padding-top: 70px;
+  padding-left: 150px;
   .project-title {
     text-shadow: 2px 2px  rgb(251, 253, 107);
     position: fixed;
     right: 32px;
-    top: 16px;
+    top: 130px;
+    transform: rotate(90deg) translate(0, -100%);
   }
-  .project-mobile {
+  .project-title-mobile {
     display: none;
   }
   img {
-    max-width: 70vw;
+    max-width: 35vw;
+    padding: 20px;
   }
   img[lazy=loading]{
-    min-height: 950px;
-    min-width: 960px;
-  }
-  .row {
-    margin-left: 100px;
+    min-height: 200px;
+    min-width: 200px;
   }
   .arrow-container {
     display: flex;
@@ -176,21 +224,16 @@ export default {
   .container {
     height: 100vh;
     padding-left: 0px;
-    padding-top: 90px;
+    padding-top: 0px;
     img {
-      max-width: 300px;
+      max-width: 45vw;
+      padding: 8px;
     }
     img[lazy=loading]{
-      min-height: 200px;
-      min-width: 200px;
+      min-height: 45vw;
+      min-width: 45vw;
     }
     .description {
-      display: none;
-    }
-    .row {
-      margin: 0px;
-    }
-    .project-title {
       display: none;
     }
     .mobile-description {
@@ -198,12 +241,16 @@ export default {
       display: block;
       padding: 24px;
     }
-    .project-mobile {
+    .project-title {
+      display: none;
+    }
+    .project-title-mobile {
       display: block;
       text-shadow: 2px 2px  rgb(251, 253, 107);
       position: fixed;
-      top: 16px;
-      right: 32px;
+      right: 2px;
+      top: 65px;
+      transform: rotate(90deg) translate(0, -100%);
     }
   }
 }

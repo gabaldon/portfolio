@@ -56,20 +56,18 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   data () {
     return {
       toogleSideBar: true,
-      scrollPosition: null,
-      windowWidth: null
     }
   },
   computed: {
-    isMobile () {
-      return this.windowWidth < 1024
-    },
+    ...mapState({
+      isMobile: state => state.isMobile
+    })
   },
   watch: {
     toogleSideBar () {
@@ -79,8 +77,6 @@ export default {
   mounted () {
     this.onScroll()
     window.addEventListener('scroll', this.updateScroll)
-    window.addEventListener('window', this.updateWindowWidth)
-    this.updateWindowWidth()
     if (this.isMobile && this.$route.path !== '/') {
       this.toogleSideBar = false
     }
@@ -90,6 +86,7 @@ export default {
       'toogleBar',
       'detectClick',
       'toggleDesktopBar',
+      'toggleScrollDown',
     ]),
     toogle () {
       this.detectClick()
@@ -110,12 +107,9 @@ export default {
       }
     },
     updateScroll () {
-      this.scrollPosition = window.innerHeight + window.scrollY
+      this.toggleScrollDown()
       document.getElementById('side-bar').style.top === '80px' ? this.toggleDesktopBar({ toggle: false }) : this.toggleDesktopBar({ toggle: true })
     },
-    updateWindowWidth () {
-      this.windowWidth = window.innerWidth
-    }
   }
 }
 </script>

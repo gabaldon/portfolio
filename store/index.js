@@ -2,6 +2,8 @@ export const state = () => ({
   toogleSideBar: false,
   displayDesktopSideBar: false,
   clickBar: false,
+  scrollDown: false,
+  isMobile: window.innerWidth < 1024
 })
 
 export const mutations = {
@@ -10,6 +12,9 @@ export const mutations = {
   },
   toogleBar (state) {
     state.toogleSideBar = !state.toogleSideBar
+  },
+  toggleScrollDown (state) {
+    state.scrollDown = !state.scrollDown
   },
   detectClick (state) {
     state.clickBar = !state.clickBar

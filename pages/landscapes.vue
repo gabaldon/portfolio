@@ -4,13 +4,13 @@
       <p v-show="texts[0].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
         {{ texts[0].title }}
       </p>
-      <div class="colum cursor" @mouseenter="texts[0].show = true" @mouseleave="texts[0].show = false">
+      <div class="colum cursor" @mousemove="texts[0].show = true" @mouseleave="texts[0].show = false">
         <img v-lazy="images[0]" alt="abuela en Vietnam">
       </div>
       <p v-show="texts[1].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
         {{ texts[1].title }}
       </p>
-      <div class="colum cursor" @mouseenter="texts[1].show = true" @mouseleave="texts[1].show = false">
+      <div class="colum cursor" @mousemove="texts[1].show = true" @mouseleave="texts[1].show = false">
         <img v-lazy="images[1]" alt="Paisaje de Nueva York">
       </div>
     </div>
@@ -18,7 +18,7 @@
       <p v-show="texts[2].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
         {{ texts[2].title }}
       </p>
-      <div class="colum cursor" @mouseenter="texts[2].show = true" @mouseleave="texts[2].show = false">
+      <div class="colum cursor" @mousemove="texts[2].show = true" @mouseleave="texts[2].show = false">
         <img v-lazy="images[2]" alt="Kenia">
       </div>
     </div>
@@ -26,13 +26,13 @@
       <p v-show="texts[3].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
         {{ texts[3].title }}
       </p>
-      <div class="colum cursor" @mouseenter="texts[3].show = true" @mouseleave="texts[3].show = false">
+      <div class="colum cursor" @mousemove="texts[3].show = true" @mouseleave="texts[3].show = false">
         <img v-lazy="images[3]" alt="Vacas">
       </div>
       <p v-show="texts[4].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
         {{ texts[4].title }}
       </p>
-      <div class="colum cursor" @mouseenter="texts[4].show = true" @mouseleave="texts[4].show = false">
+      <div class="colum cursor" @mousemove="texts[4].show = true" @mouseleave="texts[4].show = false">
         <img v-lazy="images[4]" alt="Montaña del Cáucaso">
       </div>
     </div>
@@ -40,7 +40,7 @@
       <p v-show="texts[5].show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
         {{ texts[5].title }}
       </p>
-      <div class="colum cursor" @mouseenter="texts[5].show = true" @mouseleave="texts[5].show = false">
+      <div class="colum cursor" @mousemove="texts[5].show = true" @mouseleave="texts[5].show = false">
         <img v-lazy="images[5]" alt="Ho Chi Minh">
       </div>
     </div>
@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 
 export default {
   head () {
@@ -119,6 +120,21 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapState({
+      scrollDown: state => state.scrollDown,
+      isMobile: state => state.isMobile,
+    }),
+  },
+  watch: {
+    scrollDown () {
+      if (this.isMobile) {
+        this.texts.forEach(text => {
+          text.show = false
+        })
+      }
+    }
+  },
   created () {
     this.scrollToTop()
   },
@@ -182,12 +198,6 @@ export default {
   .container {
     padding-left: 0px;
     padding-top: 0px;
-    .cursor {
-      cursor: auto
-    }
-    .title {
-      display: none;
-    }
   }
 }
 

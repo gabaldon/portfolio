@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <transition name="translate">
+      <p v-show="displayDesktopSideBar" class="description">
+        FLACA is an international DJ, co-funder of CHICAGANG and BAM BAM
+      </p>
+    </transition>
     <p v-show="!displayDesktopSideBar" class="project-title">
       FLACA
     </p>
@@ -114,14 +119,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.transition-leave-active {
+  transition: all 0.5s;
+}
+.transition-leave-active {
+  opacity: 0;
+}
+.translate-enter-active {
+  transition: all 0.5s;
+}
+.translate-enter {
+  opacity: 0;
+  transform: translateY(-1400px)
+}
+.description {
+  position: fixed;
+  top: 100px;
+  left: 70px;
+  width: 100px;
+  line-height: 2;
+  font-size: 14px;
+}
+.mobile-description {
+  display: none;
+}
 .container {
   padding-top: 70px;
-  padding-left: 100px;
+  padding-left: 150px;
   .project-title {
     text-shadow: 2px 2px  rgb(251, 253, 107);
     position: fixed;
-    right: 32px;
-    top: 16px;
+    right: 80px;
+    top: 90px;
+    transform: rotate(90deg) translate(0, -100%);
   }
   .project-title-mobile {
     display: none;
@@ -161,6 +191,14 @@ export default {
     img {
       max-width: 300px;
     }
+    .description {
+      display: none;
+    }
+    .mobile-description {
+      text-align: justify;
+      display: block;
+      padding: 24px;
+    }
     .project-title {
       display: none;
     }
@@ -168,8 +206,9 @@ export default {
       display: block;
       text-shadow: 2px 2px  rgb(251, 253, 107);
       position: fixed;
-      right: 32px;
-      top: 16px;
+      right: 34px;
+      top: 30px;
+      transform: rotate(90deg) translate(0, -100%);
     }
   }
 }
