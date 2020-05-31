@@ -43,6 +43,11 @@
         <img v-lazy="images[7]" alt="">
       </div>
     </div>
+    <div class="row">
+      <p class="mobile-description">
+        FLACA is an international DJ, co-funder of CHICAGANG and BAM BAM
+      </p>
+    </div>
     <div class="arrow-container" @click="closeProject">
       <img v-lazy="require('@/assets/images/arrow-to-right.svg')" class="arrow" alt="arrow to right">
       <p class="go-next">
@@ -164,6 +169,9 @@ export default {
     min-height: 200px;
     min-width: 200px;
   }
+  .mobile-description {
+    display: none;
+  }
   .arrow-container {
     display: flex;
     flex-direction: row;
@@ -195,7 +203,6 @@ export default {
       display: none;
     }
     .mobile-description {
-      text-align: justify;
       display: block;
       padding: 24px;
     }
@@ -206,7 +213,7 @@ export default {
       display: block;
       text-shadow: 2px 2px  rgb(251, 253, 107);
       position: fixed;
-      right: 34px;
+      right: 24px;
       top: 30px;
       transform: rotate(90deg) translate(0, -100%);
     }

@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar">
     <div class="top-bar">
-      <div class="about" @click="toogleSideBar = !toogleSideBar">
+      <div class="about" @click="isMobile ? toogleSideBar = !toogleSideBar : showBar()">
         <h1 class="logo">
           <span class="logo-br-pnk">ELISA</span>
           <span>
@@ -11,7 +11,7 @@
         </h1>
       </div>
     </div>
-    <div id="side-bar">
+    <div id="side-bar" :class="{ display: toogleSideBar }">
       <transition name="translate-in">
         <ul v-if="toogleSideBar" class="side-bar">
           <li @click="toogle()">
@@ -105,6 +105,10 @@ export default {
           prevScrollpos = currentScrollPos
         }
       }
+    },
+    showBar() {
+      this.toggleDesktopBar({ toggle: false })
+      document.getElementById('side-bar').style.top = '80px'
     },
     updateScroll () {
       this.toggleScrollDown()

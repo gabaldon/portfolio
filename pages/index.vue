@@ -83,7 +83,7 @@ export default {
   height: 90vh;
   background-size: auto 91% ;
   background-repeat: no-repeat;
-  background-position: 50vw 30px;
+  background-position: 60vw 30px;
   display: flex;
   justify-content: left;
   .contact-text {

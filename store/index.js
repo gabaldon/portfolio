@@ -8,6 +8,7 @@ export const state = () => ({
 
 export const mutations = {
   toggleDesktopBar (state, { toggle }) {
+    console.log(toggle)
     state.displayDesktopSideBar = toggle
   },
   toogleBar (state) {

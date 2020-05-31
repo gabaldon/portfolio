@@ -131,7 +131,7 @@ export default {
 }
 .slide-left-enter-active,
 .slide-left-leave-active {
-  transition: all 0.5s;
+  transition: all 0.75s;
 }
 
 .slide-left-enter,
@@ -153,8 +153,8 @@ export default {
     grid-template-rows: 1fr auto;
     .projects {
       display: grid;
-      grid-template-columns: 420px 420px;
-      column-gap: 32px;
+      grid-template-columns: 30vw 30vw;
+      column-gap: 40px;
       margin-left: 70px;
       justify-content: center;
       .project {
@@ -197,6 +197,9 @@ export default {
       grid-template-columns: 300px;
       margin-top: 32px;
       margin-left: 0px;
+      .title {
+        display: none;
+      }
     }
   }
 }

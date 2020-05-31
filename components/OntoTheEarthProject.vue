@@ -237,7 +237,6 @@ export default {
       display: none;
     }
     .mobile-description {
-      text-align: justify;
       display: block;
       padding: 24px;
     }
@@ -248,7 +247,7 @@ export default {
       display: block;
       text-shadow: 2px 2px  rgb(251, 253, 107);
       position: fixed;
-      right: 2px;
+      right: 0px;
       top: 65px;
       transform: rotate(90deg) translate(0, -100%);
     }
