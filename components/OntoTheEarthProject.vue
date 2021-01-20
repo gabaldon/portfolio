@@ -11,7 +11,7 @@
     <p class="project-title-mobile">
       ONTO THE EARTH
     </p>
-    <div class="row">
+    <div class="row double-col">
       <div class="colum">
         <img v-lazy="images[0]" alt="">
       </div>
@@ -19,7 +19,7 @@
         <img v-lazy="images[1]" alt="">
       </div>
     </div>
-    <div class="row">
+    <div class="row double-col">
       <div class="colum">
         <img v-lazy="images[2]" alt="">
       </div>
@@ -27,7 +27,7 @@
         <img v-lazy="images[3]" alt="">
       </div>
     </div>
-    <div class="row">
+    <div class="row double-col">
       <div class="colum">
         <img v-lazy="images[4]" alt="">
       </div>
@@ -35,7 +35,7 @@
         <img v-lazy="images[5]" alt="">
       </div>
     </div>
-    <div class="row">
+    <div class="row double-col">
       <div class="colum">
         <img v-lazy="images[6]" alt="">
       </div>
@@ -43,7 +43,7 @@
         <img v-lazy="images[7]" alt="">
       </div>
     </div>
-    <div class="row">
+    <div class="row double-col">
       <div class="colum">
         <img v-lazy="images[8]" alt="">
       </div>
@@ -51,7 +51,7 @@
         <img v-lazy="images[9]" alt="">
       </div>
     </div>
-    <div class="row">
+    <div class="row double-col last">
       <div class="colum">
         <img v-lazy="images[10]" alt="">
       </div>
@@ -86,11 +86,11 @@ export default {
       images: [
         {
           src: require('@/assets/images/projects/onto-the-world/ALTA/1.jpg'),
-          loading: require('@/assets/images/projects/onto-the-world/BAJA/1.jpg')
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/1.jpg'),
         },
         {
-          src: require('@/assets/images/projects/onto-the-world/ALTA/2.jpg'),
-          loading: require('@/assets/images/projects/onto-the-world/BAJA/2.jpg')
+          src: require('@/assets/images/projects/onto-the-world/ALTA/5.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/5.jpg')
         },
         {
           src: require('@/assets/images/projects/onto-the-world/ALTA/3.jpg'),
@@ -101,8 +101,8 @@ export default {
           loading: require('@/assets/images/projects/onto-the-world/BAJA/4.jpg')
         },
         {
-          src: require('@/assets/images/projects/onto-the-world/ALTA/5.jpg'),
-          loading: require('@/assets/images/projects/onto-the-world/BAJA/5.jpg')
+          src: require('@/assets/images/projects/onto-the-world/ALTA/2.jpg'),
+          loading: require('@/assets/images/projects/onto-the-world/BAJA/2.jpg')
         },
         {
           src: require('@/assets/images/projects/onto-the-world/ALTA/6.jpg'),
@@ -141,13 +141,10 @@ export default {
       displayDesktopSideBar: state => state.displayDesktopSideBar,
     }),
   },
-  created () {
-    this.scrollToTop()
+  beforeDestroy() {
+    window.scrollTo(0,0);
   },
   methods: {
-    scrollToTop() {
-      window.scrollTo(0,0);
-    },
     closeProject() {
       this.$emit('close-project')
     }
@@ -181,8 +178,7 @@ export default {
   display: none;
 }
 .container {
-  padding-top: 70px;
-  padding-left: 150px;
+  padding-top: 30px;
   .project-title {
     text-shadow: 2px 2px  rgb(251, 253, 107);
     position: fixed;
@@ -192,10 +188,6 @@ export default {
   }
   .project-title-mobile {
     display: none;
-  }
-  img {
-    max-width: 35vw;
-    padding: 20px;
   }
   img[lazy=loading]{
     min-height: 200px;
@@ -224,21 +216,16 @@ export default {
   .container {
     height: 100vh;
     padding-left: 0px;
-    padding-top: 0px;
-    img {
-      max-width: 45vw;
-      padding: 8px;
-    }
     img[lazy=loading]{
-      min-height: 45vw;
-      min-width: 45vw;
+      min-height: 100%;
+      min-width: 100%;
     }
     .description {
       display: none;
     }
     .mobile-description {
+      margin: 0px 30px 0px 30px;
       display: block;
-      padding: 24px;
     }
     .project-title {
       display: none;
@@ -247,7 +234,7 @@ export default {
       display: block;
       text-shadow: 2px 2px  rgb(251, 253, 107);
       position: fixed;
-      right: 0px;
+      right: -25px;
       top: 65px;
       transform: rotate(90deg) translate(0, -100%);
     }

@@ -16,6 +16,7 @@
 
 <script>
 export default {
+  scrollToTop: false,
   head () {
     return {
       title: 'Contact - Elisa S Fernández',
@@ -42,17 +43,11 @@ export default {
         this.show = false
       }
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-.page-enter-active, .page-leave-active {
-  transition: all 0.5s;
-}
-.page-enter, .page-leave-active {
-  opacity: 0;
-}
 .container {
   height: 90vh;
   display: flex;

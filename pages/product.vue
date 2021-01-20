@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="colum">
+    <div class="row page-centered last">
+      <div class="img-container last">
         <img v-lazy="images[0]" alt="portada Retina producto de colores">
       </div>
     </div>
@@ -19,6 +19,7 @@
 <script>
 
 export default {
+  scrollToTop: false,
   head () {
     return {
       title: 'Product - Elisa S Fernández',
@@ -49,36 +50,13 @@ export default {
       }
     }
   },
-  created () {
-    this.scrollToTop()
-  },
-  methods: {
-    scrollToTop() {
-      window.scrollTo(0,0);
-    }
-  }
 }
 </script>
 
 <style lang="scss" scoped>
-.page-enter-active {
-  transition: all 1s;
-}
-.page-enter {
-  opacity: 0;
-  transform: translateY(600px)
-}
 .container {
-    padding-top: 70px;
-    padding-left: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  img {
-    max-height: 80vh;
-    max-width: 70vw;
-    padding: 20px;
-  }
+  padding-top: 30px;
+
   img[lazy=loading]{
     min-height: 200px;
     min-width: 200px;
@@ -102,12 +80,11 @@ export default {
 }
 @media (max-width: 1024px) {
   .container {
-    height: 100vh;
+    height: 95vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     padding-left: 0px;
-    padding-top: 0px;
-    img {
-      padding-top: 30vh;
-    }
   }
 }
 </style>

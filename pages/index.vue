@@ -21,6 +21,7 @@
 import Footer from '@/components/Footer.vue'
 
 export default {
+  scrollToTop: false,
   head () {
     return {
       title: 'Elisa S Fernández',
@@ -65,17 +66,11 @@ export default {
       }
       self.mainImageSrc = self.images[this.counter]
     }, 2500)
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-.page-enter-active, .page-leave-active {
-  transition: all 0.5s;
-}
-.page-enter, .page-leave-active {
-  opacity: 0;
-}
 .container {
   margin: 0;
   padding: 0px;
