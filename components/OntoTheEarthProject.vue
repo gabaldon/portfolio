@@ -224,7 +224,7 @@ export default {
       display: none;
     }
     .mobile-description {
-      margin: 0px 30px 0px 30px;
+      margin: 30px 30px 0px 30px;
       display: block;
     }
     .project-title {
