@@ -69,8 +69,8 @@ export default {
   },
   methods: {
     hideTitles() {
-      this.texts.forEach(text => {
-        text.show = false
+      this.images.forEach(image => {
+        image.text.show = false
       })
     },
   },

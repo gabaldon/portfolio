@@ -5,7 +5,9 @@
         <p v-show="image.text.show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
           {{ image.text.title }}
         </p>
-        <img v-lazy="image" :alt="image.alt ? image.alt : null">
+        <nuxt-link :to="image.url">
+          <img v-lazy="image" :alt="image.alt ? image.alt : null">
+        </nuxt-link>
       </div>
     </div>
     <nuxt-link class="arrow-container" :to="nextPage.path">

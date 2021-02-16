@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ProjectCard title="ARUFE" description="description for ARUFE Project" :images="images" @close-project="closeProject" />
+    <ProjectCard title="ARUFE" :audio="require('@/assets/sounds/ARUFE_NENO.mp3')" :images="images" @close-project="closeProject" />
   </div>
 </template>
 

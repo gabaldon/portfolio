@@ -1,22 +1,9 @@
 <template>
-  <div class="container">
-    <div class="row page-centered last">
-      <div class="img-container last">
-        <img v-lazy="images[0]" alt="portada Retina producto de colores">
-      </div>
-    </div>
-    <div>
-      <nuxt-link v-show="show" class="arrow-container" to="/contact">
-        <p class="go-next">
-          Go to contact
-        </p>
-        <img v-lazy="require('@/assets/images/arrow-to-right.svg')" class="arrow" alt="arrow to right">
-      </nuxt-link>
-    </div>
-  </div>
+  <PageCard :images="images" :next-page="nextPage" @show-false="hideTexts" />
 </template>
 
 <script>
+import PageCard from '@/components/PageCard.vue'
 
 export default {
   scrollToTop: false,
@@ -25,30 +12,35 @@ export default {
       title: 'Product - Elisa S Fernández',
     }
   },
+  components: {
+    PageCard,
+  },
   data () {
     return {
+      nextPage: {
+        title: 'Go to contact',
+        path: '/contact',
+      },
       images: [
         {
           src: require('@/assets/images/product/retina_product.jpg'),
-          loading: require('@/assets/images/product/retina_product_LQ.jpg')
+          loading: require('@/assets/images/product/retina_product_LQ.jpg'),
+          text: { 
+            title: null,
+            show: false, 
+          },
+          horizontal: true,
         }
       ],
       show: true
     }
   },
-  computed: {
-    isToogleActive () {
-      return this.$store.state.toogleSideBar
-    }
-  },
-  watch: {
-    isToogleActive () {
-      if (this.isToogleActive) {
-        this.show = true
-      } else {
-        this.show = false
-      }
-    }
+  methods: {
+    hideTitles() {
+      this.images.forEach(image => {
+        image.text.show = false
+      })
+    },
   },
 }
 </script>

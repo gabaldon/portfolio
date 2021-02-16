@@ -2,7 +2,6 @@
   <div>
     <ProjectCard 
       title="SOFIA REMI" 
-      description="description for Sofia Remi Project" 
       :images="images" 
       position-right="-8"  
       position-top="50" 

@@ -1,30 +1,44 @@
 <template>
-  <div class="container">
-    <transition name="translate">
-      <p v-show="displayDesktopSideBar" class="description">
+  <div>
+    <div :class="mobileFixed ? 'container double-fixed' : 'container'">
+      <transition name="translate">
+        <p v-if="displayDesktopSideBar && description" :class="mobileFixed ? 'description double-fixed' : 'description'">
+          {{ description }}
+        </p>
+        <div
+          v-if="displayDesktopSideBar && audio" 
+          :class="mobileFixed ? 'description pointer double-fixed' : 'description pointer'"
+          @click="playSound" 
+        >
+          :arrow_forward: Play me to listen!
+        </div>
+      </transition>
+      <p v-show="!displayDesktopSideBar" class="project-title" :style="{ top: `${positionTop}px`, right: `${positionRightDesktop}px` }">
+        {{ title }}
+      </p>
+      <p class="project-title-mobile" :style="{ top: `${positionTop}px`, right: `${positionRight}px` }">
+        {{ title }}
+      </p>
+      <div v-for="(image, index) in images" :key="index" :class="mobileFixed ? 'img-container double-fixed' : 'img-container'">
+        <img v-lazy="image" :alt="image.alt ? image.alt : null">
+      </div>
+      <p v-if="description" :class="mobileFixed ? 'mobile-description double-fixed' : 'mobile-description'">
         {{ description }}
       </p>
-    </transition>
-    <p v-show="!displayDesktopSideBar" class="project-title" :style="{ top: `${positionTop}px`, right: `${positionRightDesktop}px` }">
-      {{ title }}
-    </p>
-    <p class="project-title-mobile" :style="{ top: `${positionTop}px`, right: `${positionRight}px` }">
-      {{ title }}
-    </p>
-    <div v-for="(image, index) in images" :key="index" class="img-container">
-      <img v-lazy="image" :alt="image.alt ? image.alt : null">
+      <div
+        v-if="audio" 
+        :class="mobileFixed ? 'mobile-description pointer double-fixed' : 'mobile-description pointer'"
+        @click="playSound" 
+      >
+        <img v-lazy="require('@/assets/images/arrow-to-right.svg')" class="arrow" alt="arrow to right"> Play me to listen!
+      </div>
     </div>
-    <div class="row">
-      <p class="mobile-description">
-        {{ description }}
-      </p>
-    </div>
-    <div class="arrow-container" @click="closeProject">
+    <nuxt-link :class="mobileFixed ? 'arrow-container double-fixed' : 'arrow-container'" to="/projects">
       <img v-lazy="require('@/assets/images/arrow-to-right.svg')" class="arrow" alt="arrow to right">
       <p class="go-next">
         Go back to projects
       </p>
-    </div>
+    </nuxt-link>
   </div>
 </template>
 
@@ -54,13 +68,30 @@ export default {
     },
     description: {
       type: String,
-      required: true,
+      default: null,
+    },
+    mobileFixed: {
+      type: Boolean,
+      default: false,
+    },
+    audio: {
+      type: String,
+      default: null,
+    }
+  },
+  data() {
+    return {
+      isSoundEnabled: true,
+      audioToPlay: null,
     }
   },
   computed: {
     ...mapState({
       displayDesktopSideBar: state => state.displayDesktopSideBar,
     }),
+  },
+  mounted() {
+    return this.initializeSound
   },
   created() {
     this.scrollToTop()
@@ -69,12 +100,32 @@ export default {
     this.scrollToTop()
   },
   methods: {
-    closeProject() {
-      this.$emit('close-project')
-    },
     scrollToTop() {
       window.scrollTo(0,0);
-    }
+    },
+    initializeSound() {
+      const isSoundEnabled = JSON.parse(localStorage.getItem('isSoundEnabled'))
+      if(!isSoundEnabled) {
+        this.isSoundEnabled = false;
+        localStorage.setItem("isSoundEnabled", false)
+      } else if(isSoundEnabled) {
+        this.isSoundEnabled = true;
+        localStorage.setItem("isSoundEnabled", true)
+      } else {
+        this.isSoundEnabled = true;
+        localStorage.setItem("isSoundEnabled", true)
+      }
+    },
+    toggleSound() {
+      this.isSoundEnabled = !this.isSoundEnabled
+      localStorage.setItem('isSoundEnabled', this.isSoundEnabled)
+    },
+    playSound() {
+      if (this.isSoundEnabled) { 
+        this.audioToPlay = new Audio(this.audio)
+        this.audioToPlay.play()
+      }
+    },
   }
 }
 </script>
@@ -100,6 +151,20 @@ export default {
   width: 100px;
   line-height: 2;
   font-size: 14px;
+
+  .arrow {
+    min-height: 0;
+    min-width: 0;
+    width: 13px;
+    padding-right: 8px;
+  }
+  &.pointer {
+    cursor: pointer;
+  }
+
+  &.double-fixed {
+    width: 150px;
+  }
 }
 .mobile-description {
   display: none;
@@ -108,12 +173,16 @@ export default {
   padding-top: 30px;
   display: grid;
   grid-template-columns: 35vw 35vw;
-  column-gap: 30px;
+  column-gap: 24px;
   margin-left: 150px;
   justify-content: center;
 
+  &.double-fixed {
+    margin-left: 200px;
+  }
+
   .img-container {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
     &:last-of-type {
       margin-bottom: 0px;
     }
@@ -133,24 +202,25 @@ export default {
   .mobile-description {
     display: none;
   }
-  .arrow-container {
-    position: relative;
-    bottom: 8px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    cursor: pointer;
-    .go-next {
-      text-shadow: 2px 2px  rgb(251, 253, 107);
-    }
-    .arrow {
-      transform: rotate(180deg);
-      min-height: 0;
-      min-width: 0;
-      padding: 8px;
-      width: 13px;
-    }
+}
+.arrow-container {
+  position: relative;
+  bottom: 8px;
+  right: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  .go-next {
+    text-shadow: 2px 2px  rgb(251, 253, 107);
+  }
+  .arrow {
+    transform: rotate(180deg);
+    min-height: 0;
+    min-width: 0;
+    padding: 8px;
+    width: 13px;
   }
 }
 @media (max-width: 1024px) {
@@ -159,18 +229,44 @@ export default {
     grid-template-columns: auto;
     margin: 0px;
 
+    img[lazy=loading]{
+      min-height: 100%;
+      min-width: 100%;
+    }
+
+    &.double-fixed {
+      grid-template-columns: 35vw 35vw;
+      margin: 0px;
+    }
+
     .img-container {
-      margin: 0px 30px 30px 30px;
+      margin: 0px 24px 24px 24px;
+
+      &.double-fixed {
+        margin: 0px 0px 24px 0px;
+      }
     }
     .description {
       display: none;
     }
     .mobile-description {
       display: block;
-      padding: 0px 30px 30px 30px;
-    }
-    .arrow-container {
-      right: 30px;
+      padding: 0px 24px 24px 24px;
+
+      .arrow {
+        min-height: 0;
+        min-width: 0;
+        width: 13px;
+        padding-right: 8px;
+      }
+
+      &.pointer {
+        cursor: pointer;
+      }
+
+      &.double-fixed {
+        grid-column: auto / span 2;
+      }
     }
     .project-title {
       display: none;

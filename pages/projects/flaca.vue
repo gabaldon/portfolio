@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ProjectCard title="FLACA" description="description for FLACA Project" :images="images" @close-project="closeProject" />
+    <ProjectCard title="FLACA" description="FLACA is an international DJ, co-funder of CHICAGANG and BAM BAM" :images="images" @close-project="closeProject" />
   </div>
 </template>
 
