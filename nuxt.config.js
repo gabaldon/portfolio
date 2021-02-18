@@ -1,6 +1,6 @@
 
 export default {
-  mode: 'spa',
+  ssr: false,
   router: {
     base: '/'
   },
@@ -38,20 +38,18 @@ export default {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
+    'nuxt-use-sound',
   ],
   /*
   ** Build configuration
   */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
     extend(config, ctx) {
       config.module.rules.push({
         test: /\.(ogg|mp3|wav|mpe?g)$/i,
@@ -60,6 +58,6 @@ export default {
           name: '[path][name].[ext]'
         }
       })
-    },
+    }
   }
 }

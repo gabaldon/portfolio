@@ -8,11 +8,6 @@
 import ProjectCard from '@/components/ProjectCard.vue'
 
 export default {
-  head () {
-    return {
-      title: 'Flaca - Elisa S Fernández',
-    }
-  },
   components: {
     ProjectCard,
   },
@@ -58,6 +53,11 @@ export default {
   methods: {
     closeProject() {
       this.$emit('close-project')
+    }
+  },
+  head () {
+    return {
+      title: 'Flaca - Elisa S Fernández',
     }
   }
 }

@@ -17,11 +17,6 @@
 import ProjectCard from '@/components/ProjectCard.vue'
 
 export default {
-  head () {
-    return {
-      title: 'Onto the Earth - Elisa S Fernández',
-    }
-  },
   components: {
     ProjectCard,
   },
@@ -83,6 +78,11 @@ export default {
   methods: {
     closeProject() {
       this.$emit('close-project')
+    }
+  },
+  head () {
+    return {
+      title: 'Onto the Earth - Elisa S Fernández',
     }
   }
 }

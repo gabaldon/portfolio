@@ -1,5 +1,5 @@
 <template>
-  <PageCard :images="images" :next-page="nextPage" @show-false="hideTexts" />
+  <PageCard :images="images" :next-page="nextPage" @show-false="hideTitles" />
 </template>
 
 <script>
@@ -7,11 +7,6 @@ import PageCard from '@/components/PageCard.vue'
 
 export default {
   scrollToTop: false,
-  head () {
-    return {
-      title: 'Product - Elisa S Fernández',
-    }
-  },
   components: {
     PageCard,
   },
@@ -41,6 +36,11 @@ export default {
         image.text.show = false
       })
     },
+  },
+  head () {
+    return {
+      title: 'Product - Elisa S Fernández',
+    }
   },
 }
 </script>

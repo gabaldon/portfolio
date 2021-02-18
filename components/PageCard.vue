@@ -2,13 +2,13 @@
   <div>
     <div class="container" @mousemove="updateCoordinates">
       <div v-for="(image, index) in images" :key="index" :class="image.horizontal ? `img-container single-col`: `img-container cursor`" @mousemove="image.text.show = true" @mouseleave="image.text.show = false">
-        <p v-show="image.text.show" class="title" :style="{ top: y + 'px', left: x + 'px' }">
+        <p v-show="image.text.show" :style="{ top: y + 'px', left: x + 'px' }" class="title">
           {{ image.text.title }}
         </p>
         <img v-lazy="image" :alt="image.alt ? image.alt : null">
       </div>
     </div>
-    <nuxt-link class="arrow-container" :to="nextPage.path">
+    <nuxt-link :to="nextPage.path" class="arrow-container">
       <p class="go-next">
         {{ nextPage.title }}
       </p>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ProjectCard title="ARUFE" :audio="require('@/assets/sounds/ARUFE_NENO.mp3')" :images="images" @close-project="closeProject" />
+    <ProjectCard title="ARUFE" audio="ARUFE_NENO.mp3" :images="images" @close-project="closeProject" />
   </div>
 </template>
 
@@ -8,11 +8,6 @@
 import ProjectCard from '@/components/ProjectCard.vue'
 
 export default {
-  head () {
-    return {
-      title: 'ARUFE - Elisa S Fernández',
-    }
-  },
   components: {
     ProjectCard,
   },
@@ -76,6 +71,11 @@ export default {
   methods: {
     closeProject() {
       this.$emit('close-project')
+    }
+  },
+  head () {
+    return {
+      title: 'ARUFE - Elisa S Fernández',
     }
   }
 }

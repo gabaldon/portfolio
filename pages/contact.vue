@@ -17,14 +17,6 @@
 <script>
 export default {
   scrollToTop: false,
-  head () {
-    return {
-      title: 'Contact - Elisa S Fernández',
-      meta: [
-        { hid: 'description', name: 'description', content: 'elisasanchezfernandez@gmail.com' }
-      ]
-    }
-  },
   data () {
     return {
       show: true
@@ -42,6 +34,14 @@ export default {
       } else {
         this.show = false
       }
+    }
+  },
+  head () {
+    return {
+      title: 'Contact - Elisa S Fernández',
+      meta: [
+        { hid: 'description', name: 'description', content: 'elisasanchezfernandez@gmail.com' }
+      ]
     }
   },
 }

@@ -1,18 +1,10 @@
 <template>
-  <PageCard :images="images" :next-page="nextPage" @show-false="hideTexts" />
+  <PageCard :images="images" :next-page="nextPage" @show-false="hideTitles" />
 </template>
 <script>
 import PageCard from '@/components/PageCard.vue'
 export default {
   scrollToTop: false,
-  head () {
-    return {
-      title: 'Portraits - Elisa S Fernández',
-      meta: [
-        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
-      ]
-    }
-  },
   components: {
     PageCard,
   },
@@ -116,10 +108,18 @@ export default {
     }
   },
   methods: {
-    hideTexts() {
+    hideTitles() {
       this.images.forEach(image => {
         image.text.show = false
       })
+    }
+  },
+  head () {
+    return {
+      title: 'Portraits - Elisa S Fernández',
+      meta: [
+        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
+      ]
     }
   }
 }

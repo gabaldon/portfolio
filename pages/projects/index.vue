@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageCardUrl :images="images" :next-page="nextPage" @show-false="hideTexts" />
+    <PageCardUrl :images="images" :next-page="nextPage" @show-false="hideTitles" />
     <nuxt-child />
   </div>
 </template>
@@ -10,11 +10,6 @@ import PageCardUrl from '@/components/PageCardUrl.vue'
 
 export default {
   scrollToTop: false,
-  head () {
-    return {
-      title: 'Projects - Elisa S Fernández',
-    }
-  },
   components: {
     PageCardUrl,
   },
@@ -71,6 +66,11 @@ export default {
         image.text.show = false
       })
     },
+  },
+  head () {
+    return {
+      title: 'Projects - Elisa S Fernández',
+    }
   },
 }
 </script>

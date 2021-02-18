@@ -22,14 +22,6 @@ import Footer from '@/components/Footer.vue'
 
 export default {
   scrollToTop: false,
-  head () {
-    return {
-      title: 'Elisa S Fernández',
-      meta: [
-        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
-      ]
-    }
-  },
   components: {
     Footer
   },
@@ -66,6 +58,14 @@ export default {
       }
       self.mainImageSrc = self.images[this.counter]
     }, 2500)
+  },
+  head () {
+    return {
+      title: 'Elisa S Fernández',
+      meta: [
+        { hid: 'description', name: 'description', content: 'Hola! My name is Elisa and I am a photographer based in Madrid.' }
+      ]
+    }
   },
 }
 </script>

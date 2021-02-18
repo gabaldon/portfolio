@@ -8,15 +8,15 @@
         <div
           v-if="displayDesktopSideBar && audio" 
           :class="mobileFixed ? 'description pointer double-fixed' : 'description pointer'"
-          @click="playSound" 
+          @click="play" 
         >
-          :arrow_forward: Play me to listen!
+          > Play me to listen!
         </div>
       </transition>
-      <p v-show="!displayDesktopSideBar" class="project-title" :style="{ top: `${positionTop}px`, right: `${positionRightDesktop}px` }">
+      <p v-show="!displayDesktopSideBar" :style="{ top: `${positionTop}px`, right: `${positionRightDesktop}px` }" class="project-title">
         {{ title }}
       </p>
-      <p class="project-title-mobile" :style="{ top: `${positionTop}px`, right: `${positionRight}px` }">
+      <p :style="{ top: `${positionTop}px`, right: `${positionRight}px` }" class="project-title-mobile">
         {{ title }}
       </p>
       <div v-for="(image, index) in images" :key="index" :class="mobileFixed ? 'img-container double-fixed' : 'img-container'">
@@ -28,7 +28,7 @@
       <div
         v-if="audio" 
         :class="mobileFixed ? 'mobile-description pointer double-fixed' : 'mobile-description pointer'"
-        @click="playSound" 
+        @click="play"
       >
         <img v-lazy="require('@/assets/images/arrow-to-right.svg')" class="arrow" alt="arrow to right"> Play me to listen!
       </div>
@@ -44,7 +44,16 @@
 
 <script>
 import { mapState } from 'vuex'
+import { useSound } from '@vueuse/sound'
+import arufeAudio from '../assets/sounds/ARUFE_NENO.mp3'
 export default {
+  setup() {
+    const { play } = useSound(arufeAudio)
+
+    return {
+      play,
+    }
+  },
   props: {
     images: {
       type: Array,
@@ -102,29 +111,6 @@ export default {
   methods: {
     scrollToTop() {
       window.scrollTo(0,0);
-    },
-    initializeSound() {
-      const isSoundEnabled = JSON.parse(localStorage.getItem('isSoundEnabled'))
-      if(!isSoundEnabled) {
-        this.isSoundEnabled = false;
-        localStorage.setItem("isSoundEnabled", false)
-      } else if(isSoundEnabled) {
-        this.isSoundEnabled = true;
-        localStorage.setItem("isSoundEnabled", true)
-      } else {
-        this.isSoundEnabled = true;
-        localStorage.setItem("isSoundEnabled", true)
-      }
-    },
-    toggleSound() {
-      this.isSoundEnabled = !this.isSoundEnabled
-      localStorage.setItem('isSoundEnabled', this.isSoundEnabled)
-    },
-    playSound() {
-      if (this.isSoundEnabled) { 
-        this.audioToPlay = new Audio(this.audio)
-        this.audioToPlay.play()
-      }
     },
   }
 }
